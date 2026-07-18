@@ -20,11 +20,14 @@ export const fr: Dict = {
     inquireContact: "Renseignements / Contact",
     viewAll: "Voir tout",
     sections: {
+      home: { label: "Accueil" },
+      community: { label: "Communauté" },
+      contact: { label: "Contactez-nous" },
       about: {
-        label: "Qui nous sommes",
+        label: "À propos de nous",
         items: {
           mission: {
-            label: "Notre mission et nos valeurs",
+            label: "Qui nous sommes — Mission et valeurs",
             description: "Des personnes valorisées, une communauté inclusive — ce qui nous anime chaque jour.",
           },
           impact: {
@@ -37,7 +40,10 @@ export const fr: Dict = {
           },
         },
       },
-      whoWeSupport: { label: "Qui nous soutenons" },
+      whoWeSupport: {
+        label: "Qui nous soutenons",
+        description: "Des personnes ayant des besoins médicaux et complexes, vivant bien dans la communauté.",
+      },
       services: {
         label: "Services",
         items: {

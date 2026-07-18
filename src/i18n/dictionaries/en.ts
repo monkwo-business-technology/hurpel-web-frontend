@@ -16,11 +16,14 @@ const dict = {
     inquireContact: "Inquire / Contact",
     viewAll: "View all",
     sections: {
+      home: { label: "Home" },
+      community: { label: "Community" },
+      contact: { label: "Contact Us" },
       about: {
-        label: "Who We Are",
+        label: "About Us",
         items: {
           mission: {
-            label: "Our Mission & Values",
+            label: "Who We Are — Mission & Values",
             description: "Valued people, inclusive community — what drives us every day.",
           },
           impact: {
@@ -33,7 +36,10 @@ const dict = {
           },
         },
       },
-      whoWeSupport: { label: "Who We Support" },
+      whoWeSupport: {
+        label: "Who We Support",
+        description: "People with medical and complex needs, living well in community.",
+      },
       services: {
         label: "Services",
         items: {

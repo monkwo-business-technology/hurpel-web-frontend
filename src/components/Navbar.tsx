@@ -131,7 +131,7 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
         {/* Desktop: mega menu triggers + plain links */}
         <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1">
           {navSections.map((section, i) =>
-            section.items.length === 0 ? (
+            section.items.length === 0 && !section.groups ? (
               <li key={section.label}>
                 <Link
                   href={section.href}
@@ -223,7 +223,8 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
       </nav>
 
       {/* Desktop mega menu panel */}
-      {openMenu !== null && navSections[openMenu].items.length > 0 && (
+      {openMenu !== null &&
+        (navSections[openMenu].items.length > 0 || navSections[openMenu].groups) && (
         <div
           className="hidden lg:block absolute inset-x-0 top-full"
           onMouseEnter={cancelClose}
@@ -246,39 +247,82 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                   </svg>
                 </Link>
               </div>
-              <ul
-                className={`grid gap-4 ${
-                  navSections[openMenu].items.length === 4 ? "grid-cols-4" : "grid-cols-3"
-                }`}
-              >
-                {navSections[openMenu].items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={closeAll}
-                      className="group block rounded-2xl overflow-hidden bg-surface-alt/80 border border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                    >
-                      <div className="relative h-28 overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt=""
-                          fill
-                          sizes="300px"
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="p-4">
-                        <p className="font-bold text-ink group-hover:text-primary transition-colors">
-                          {item.label}
-                        </p>
-                        <p className="mt-1 text-xs text-ink-muted leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {navSections[openMenu].groups ? (
+                <div className="grid grid-cols-3 gap-8">
+                  {navSections[openMenu].groups!.map((group) => (
+                    <div key={group.label}>
+                      <Link
+                        href={group.href}
+                        onClick={closeAll}
+                        className="inline-block text-sm font-bold uppercase tracking-wider text-primary hover:text-primary-dark mb-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      >
+                        {group.label}
+                      </Link>
+                      <ul className="space-y-2">
+                        {group.items.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={closeAll}
+                              className="group flex items-center gap-3 rounded-2xl p-2.5 bg-surface-alt/60 border border-primary/5 hover:border-primary/20 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                              <Image
+                                src={item.image}
+                                alt=""
+                                width={52}
+                                height={52}
+                                className="rounded-xl object-cover w-13 h-13 shrink-0"
+                              />
+                              <span>
+                                <span className="block font-bold text-sm text-ink group-hover:text-primary transition-colors">
+                                  {item.label}
+                                </span>
+                                <span className="block text-xs text-ink-muted leading-snug mt-0.5">
+                                  {item.description}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul
+                  className={`grid gap-4 ${
+                    navSections[openMenu].items.length === 4 ? "grid-cols-4" : "grid-cols-3"
+                  }`}
+                >
+                  {navSections[openMenu].items.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={closeAll}
+                        className="group block rounded-2xl overflow-hidden bg-surface-alt/80 border border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      >
+                        <div className="relative h-28 overflow-hidden">
+                          <Image
+                            src={item.image}
+                            alt=""
+                            fill
+                            sizes="300px"
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <p className="font-bold text-ink group-hover:text-primary transition-colors">
+                            {item.label}
+                          </p>
+                          <p className="mt-1 text-xs text-ink-muted leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
@@ -294,7 +338,7 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
         <ul className="px-4 py-4 space-y-1">
           {navSections.map((section, i) => (
             <li key={section.label}>
-              {section.items.length === 0 ? (
+              {section.items.length === 0 && !section.groups ? (
                 <Link
                   href={section.href}
                   onClick={closeAll}
@@ -324,6 +368,37 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                   </button>
                   {mobileSection === i && (
                     <ul className="pl-3 pb-2 space-y-1">
+                      {section.groups?.map((group) => (
+                        <li key={group.label}>
+                          <Link
+                            href={group.href}
+                            onClick={closeAll}
+                            className="block px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-primary"
+                          >
+                            {group.label}
+                          </Link>
+                          <ul className="space-y-1">
+                            {group.items.map((item) => (
+                              <li key={item.href}>
+                                <Link
+                                  href={item.href}
+                                  onClick={closeAll}
+                                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-ink-muted hover:bg-primary/10 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                >
+                                  <Image
+                                    src={item.image}
+                                    alt=""
+                                    width={44}
+                                    height={44}
+                                    className="rounded-lg object-cover w-11 h-11"
+                                  />
+                                  <span className="text-sm font-medium">{item.label}</span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))}
                       {section.items.map((item) => (
                         <li key={item.href}>
                           <Link
