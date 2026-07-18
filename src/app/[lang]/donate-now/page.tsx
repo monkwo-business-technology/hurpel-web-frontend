@@ -29,7 +29,7 @@ export default async function DonateNowPage({ params }: { params: Promise<{ lang
         <div className="flex items-center justify-between">
           <BackButton label={t.back} fallbackHref={`/${lang}`} />
           <div className="flex items-center gap-3">
-            <Image src="/logo.jpg" alt="" width={40} height={40} className="rounded-xl" />
+            <Image src="/logo.png" alt="" width={40} height={40} />
             <span className="font-bold text-primary hidden sm:block">{site.name}</span>
           </div>
         </div>

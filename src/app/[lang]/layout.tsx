@@ -30,11 +30,11 @@ export async function generateMetadata({
     metadataBase: new URL("https://hurpelsupport.com"),
     title: dict.pages.home.title,
     description: dict.pages.home.description,
-    icons: { icon: "/logo.jpg" },
+    icons: { icon: "/logo.png" },
     openGraph: {
       title: site.name,
       description: dict.pages.home.description,
-      images: ["/logo.jpg"],
+      images: ["/logo.png"],
     },
   };
 }

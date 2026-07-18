@@ -47,7 +47,7 @@ export default function Footer({ lang, dict }: { lang: Lang; dict: Dictionary })
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt=""
               width={56}
               height={56}

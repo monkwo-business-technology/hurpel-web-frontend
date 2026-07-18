@@ -113,11 +113,10 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
           onClick={closeAll}
         >
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt=""
             width={48}
             height={48}
-            className="rounded-xl"
             priority
           />
           <span className="font-bold text-primary text-lg leading-tight hidden sm:block">
