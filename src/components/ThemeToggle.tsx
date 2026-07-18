@@ -23,12 +23,18 @@ export default function ThemeToggle({
   className = "",
   darkLabel = "Switch to dark theme",
   lightLabel = "Switch to light theme",
+  tone = "default",
 }: {
   className?: string;
   darkLabel?: string;
   lightLabel?: string;
+  tone?: "default" | "onDark";
 }) {
   const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const toneClasses =
+    tone === "onDark"
+      ? "text-white/85 hover:text-accent hover:bg-white/10 focus-visible:ring-accent"
+      : "text-primary hover:bg-primary/10 focus-visible:ring-primary";
 
   function toggle() {
     const next = !dark;
@@ -45,7 +51,9 @@ export default function ThemeToggle({
       type="button"
       onClick={toggle}
       aria-label={dark ? lightLabel : darkLabel}
-      className={`inline-flex items-center justify-center w-11 h-11 rounded-xl text-primary hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${className}`}
+      className={`inline-flex items-center justify-center rounded-xl transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 ${
+        tone === "onDark" ? "w-8 h-8" : "w-11 h-11"
+      } ${toneClasses} ${className}`}
     >
       {dark ? (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">

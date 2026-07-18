@@ -70,9 +70,10 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
       {/* Contact strip */}
       <div className="hidden md:block bg-primary-dark text-white text-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
-          <p className="text-white/85">
+          <p className="text-white/85 hidden lg:block">
             {dict.common.charityLine} {site.charityNumber} · {dict.common.focusLine}
           </p>
+          <span className="lg:hidden" aria-hidden="true" />
           <div className="flex items-center gap-6">
             <a
               href={site.phoneHref}
@@ -92,6 +93,13 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
               </svg>
               {site.email}
             </a>
+            <span className="h-4 w-px bg-white/25" aria-hidden="true" />
+            <LanguageSwitcher lang={lang} tone="onDark" />
+            <ThemeToggle
+              tone="onDark"
+              darkLabel={dict.common.switchToDark}
+              lightLabel={dict.common.switchToLight}
+            />
           </div>
         </div>
       </div>
@@ -121,14 +129,14 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
         </Link>
 
         {/* Desktop: mega menu triggers + plain links */}
-        <ul className="hidden lg:flex items-center gap-1">
+        <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1">
           {navSections.map((section, i) =>
             section.items.length === 0 ? (
               <li key={section.label}>
                 <Link
                   href={section.href}
                   onClick={closeAll}
-                  className="inline-flex items-center px-3.5 py-3 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="inline-flex items-center whitespace-nowrap px-2.5 xl:px-3.5 py-3 rounded-xl text-sm xl:text-base font-semibold text-ink-muted hover:text-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   {section.label}
                 </Link>
@@ -147,7 +155,7 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                   aria-expanded={openMenu === i}
                   aria-haspopup="true"
                   onClick={() => setOpenMenu(openMenu === i ? null : i)}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-3 rounded-xl font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  className={`inline-flex items-center gap-1 whitespace-nowrap px-2.5 xl:px-3.5 py-3 rounded-xl text-sm xl:text-base font-semibold transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                     openMenu === i
                       ? "text-primary bg-primary/10"
                       : "text-ink-muted hover:text-primary hover:bg-primary/10"
@@ -170,34 +178,31 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
           )}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-2">
-          <LanguageSwitcher lang={lang} />
-          <ThemeToggle
-            darkLabel={dict.common.switchToDark}
-            lightLabel={dict.common.switchToLight}
-          />
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
           <Link
             href={`/${lang}/contact`}
             onClick={closeAll}
-            className="px-4 py-3 rounded-2xl font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-4 py-2.5 rounded-2xl text-sm xl:text-base whitespace-nowrap font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             {dict.nav.inquireContact}
           </Link>
           <Link
             href={`/${lang}/donate-now`}
             onClick={closeAll}
-            className="px-4 py-3 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-4 py-2.5 rounded-2xl text-sm xl:text-base whitespace-nowrap font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             {dict.common.donateNow}
           </Link>
         </div>
 
         <div className="lg:hidden flex items-center gap-1">
-          <LanguageSwitcher lang={lang} />
-          <ThemeToggle
-            darkLabel={dict.common.switchToDark}
-            lightLabel={dict.common.switchToLight}
-          />
+          <span className="md:hidden flex items-center gap-1">
+            <LanguageSwitcher lang={lang} />
+            <ThemeToggle
+              darkLabel={dict.common.switchToDark}
+              lightLabel={dict.common.switchToLight}
+            />
+          </span>
           <button
             type="button"
             className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-primary hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
