@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-
-const amounts = [
-  { value: 25, context: "$25 funds an hour of one-on-one support" },
-  { value: 50, context: "$50 provides community recreation support" },
-  { value: 100, context: "$100 supplies a family workshop session" },
-  { value: 250, context: "$250 sponsors a week of respite care" },
-];
+import type { Dictionary } from "@/i18n";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function DonateForm() {
+export default function DonateForm({ dict }: { dict: Dictionary["donateForm"] }) {
+  const amounts = [
+    { value: 25, context: dict.amountContexts[0] },
+    { value: 50, context: dict.amountContexts[1] },
+    { value: 100, context: dict.amountContexts[2] },
+    { value: 250, context: dict.amountContexts[3] },
+  ];
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("monthly");
   const [amount, setAmount] = useState<number | "custom">(50);
   const [customAmount, setCustomAmount] = useState("");
@@ -32,7 +32,7 @@ export default function DonateForm() {
 
     if (!finalAmount || finalAmount <= 0) {
       setStatus("error");
-      setError("Please choose or enter a donation amount.");
+      setError(dict.chooseAmountError);
       return;
     }
 
@@ -52,12 +52,12 @@ export default function DonateForm() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "Something went wrong. Please try again.");
+        throw new Error(data?.error ?? dict.genericError);
       }
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : dict.genericError);
     }
   }
 
@@ -72,10 +72,9 @@ export default function DonateForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-ink">Thank you for your generosity!</h3>
+        <h3 className="text-2xl font-bold text-ink">{dict.successTitleThanks}</h3>
         <p className="mt-3 text-ink-muted">
-          We&apos;ve received your {frequency === "monthly" ? "monthly" : "one-time"} pledge. Our
-          team will email you a secure payment link shortly to complete your donation safely.
+          {frequency === "monthly" ? dict.successBodyMonthly : dict.successBodyOneTime}
         </p>
       </div>
     );
@@ -88,12 +87,12 @@ export default function DonateForm() {
       aria-labelledby="donate-form-heading"
     >
       <h3 id="donate-form-heading" className="sr-only">
-        Donation form
+        {dict.heading}
       </h3>
 
       {/* Step 1: frequency */}
       <fieldset>
-        <legend className="font-semibold text-ink mb-3">Donation frequency</legend>
+        <legend className="font-semibold text-ink mb-3">{dict.frequencyLegend}</legend>
         <div className="grid grid-cols-2 gap-2 p-1.5 bg-surface rounded-2xl" role="group">
           {(["one-time", "monthly"] as const).map((f) => (
             <button
@@ -107,20 +106,18 @@ export default function DonateForm() {
                   : "text-ink-muted hover:text-primary"
               }`}
             >
-              {f === "one-time" ? "One-Time" : "Monthly ♥"}
+              {f === "one-time" ? dict.oneTime : dict.monthly}
             </button>
           ))}
         </div>
         {frequency === "monthly" && (
-          <p className="mt-2 text-xs text-primary font-medium">
-            Monthly gifts provide steady, reliable support all year long.
-          </p>
+          <p className="mt-2 text-xs text-primary font-medium">{dict.monthlyNote}</p>
         )}
       </fieldset>
 
       {/* Step 2: amount */}
       <fieldset className="mt-8">
-        <legend className="font-semibold text-ink mb-3">Choose an amount</legend>
+        <legend className="font-semibold text-ink mb-3">{dict.amountLegend}</legend>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {amounts.map((a) => (
             <button
@@ -140,14 +137,14 @@ export default function DonateForm() {
         </div>
         <div className="mt-2">
           <label htmlFor="custom-amount" className="sr-only">
-            Custom amount in dollars
+            {dict.customAmountLabel}
           </label>
           <input
             id="custom-amount"
             type="number"
             min="1"
             inputMode="numeric"
-            placeholder="Custom amount ($)"
+            placeholder={dict.customAmount}
             value={customAmount}
             onFocus={() => setAmount("custom")}
             onChange={(e) => {
@@ -176,7 +173,7 @@ export default function DonateForm() {
             placeholder=" "
             className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
           />
-          <label htmlFor="donor-name">Full Name</label>
+          <label htmlFor="donor-name">{dict.fullName}</label>
         </div>
         <div className="float-field">
           <input
@@ -188,7 +185,7 @@ export default function DonateForm() {
             placeholder=" "
             className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
           />
-          <label htmlFor="donor-email">Email Address</label>
+          <label htmlFor="donor-email">{dict.email}</label>
         </div>
 
         {/* Honeypot — hidden from real users */}
@@ -204,9 +201,7 @@ export default function DonateForm() {
             onChange={(e) => setDedicate(e.target.checked)}
             className="mt-1 w-5 h-5 rounded accent-primary-solid"
           />
-          <span className="text-sm text-ink-muted">
-            Dedicate this gift (in honor / in memory of someone)
-          </span>
+          <span className="text-sm text-ink-muted">{dict.dedicateLabel}</span>
         </label>
 
         {dedicate && (
@@ -218,7 +213,7 @@ export default function DonateForm() {
               placeholder=" "
               className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
             />
-            <label htmlFor="dedication">In honor / memory of…</label>
+            <label htmlFor="dedication">{dict.dedicationField}</label>
           </div>
         )}
       </div>
@@ -234,15 +229,12 @@ export default function DonateForm() {
         disabled={status === "sending"}
         className="mt-6 w-full px-6 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
-        {status === "sending" ? "Sending…" : "Complete Safe Donation 🔒"}
+        {status === "sending" ? dict.sending : dict.submit}
       </button>
 
-      <p className="mt-4 text-xs text-center text-ink-muted">
-        No card details are collected here. After you pledge, we email you a secure Stripe/PayPal
-        payment link — your payment details never touch our inbox.
-      </p>
-      <div className="mt-3 flex items-center justify-center gap-4 text-ink-muted" aria-label="Accepted payment partners">
-        <span className="text-xs font-semibold tracking-wide">Powered by</span>
+      <p className="mt-4 text-xs text-center text-ink-muted">{dict.disclaimer}</p>
+      <div className="mt-3 flex items-center justify-center gap-4 text-ink-muted" aria-label={dict.paymentPartners}>
+        <span className="text-xs font-semibold tracking-wide">{dict.poweredBy}</span>
         <span className="text-sm font-bold text-[#635bff]">Stripe</span>
         <span className="text-sm font-bold text-[#00457C]">PayPal</span>
       </div>

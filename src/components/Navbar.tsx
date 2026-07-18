@@ -3,17 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { navSections } from "@/lib/nav";
+import { buildNavSections } from "@/lib/nav";
 import { site } from "@/lib/site";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import type { Dictionary, Lang } from "@/i18n";
 
-export default function Navbar() {
+export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<number | null>(null);
   const [mobileSection, setMobileSection] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const navSections = buildNavSections(dict, lang);
 
   function scheduleClose() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -67,7 +71,7 @@ export default function Navbar() {
       <div className="hidden md:block bg-primary-dark text-white text-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
           <p className="text-white/85">
-            Registered Charity {site.charityNumber} · Proudly FOCUS Accredited
+            {dict.common.charityLine} {site.charityNumber} · {dict.common.focusLine}
           </p>
           <div className="flex items-center gap-6">
             <a
@@ -96,7 +100,7 @@ export default function Navbar() {
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20"
       >
         <Link
-          href="/"
+          href={`/${lang}`}
           className="flex items-center gap-3 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           onClick={closeAll}
         >
@@ -116,92 +120,112 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop: mega menu triggers */}
-        <ul className="hidden lg:flex items-center gap-2">
-          {navSections.map((section, i) => (
-            <li
-              key={section.label}
-              onMouseEnter={() => {
-                cancelClose();
-                setOpenMenu(i);
-              }}
-              onMouseLeave={scheduleClose}
-            >
-              <button
-                type="button"
-                aria-expanded={openMenu === i}
-                aria-haspopup="true"
-                onClick={() => setOpenMenu(openMenu === i ? null : i)}
-                className={`inline-flex items-center gap-1.5 px-4 py-3 rounded-xl font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                  openMenu === i
-                    ? "text-primary bg-primary/10"
-                    : "text-ink-muted hover:text-primary hover:bg-primary/10"
-                }`}
-              >
-                {section.label}
-                <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${openMenu === i ? "rotate-180" : ""}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  aria-hidden="true"
+        {/* Desktop: mega menu triggers + plain links */}
+        <ul className="hidden lg:flex items-center gap-1">
+          {navSections.map((section, i) =>
+            section.items.length === 0 ? (
+              <li key={section.label}>
+                <Link
+                  href={section.href}
+                  onClick={closeAll}
+                  className="inline-flex items-center px-3.5 py-3 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-              </button>
-            </li>
-          ))}
+                  {section.label}
+                </Link>
+              </li>
+            ) : (
+              <li
+                key={section.label}
+                onMouseEnter={() => {
+                  cancelClose();
+                  setOpenMenu(i);
+                }}
+                onMouseLeave={scheduleClose}
+              >
+                <button
+                  type="button"
+                  aria-expanded={openMenu === i}
+                  aria-haspopup="true"
+                  onClick={() => setOpenMenu(openMenu === i ? null : i)}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-3 rounded-xl font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                    openMenu === i
+                      ? "text-primary bg-primary/10"
+                      : "text-ink-muted hover:text-primary hover:bg-primary/10"
+                  }`}
+                >
+                  {section.label}
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-200 ${openMenu === i ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+              </li>
+            )
+          )}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <ThemeToggle />
+        <div className="hidden lg:flex items-center gap-2">
+          <LanguageSwitcher lang={lang} />
+          <ThemeToggle
+            darkLabel={dict.common.switchToDark}
+            lightLabel={dict.common.switchToLight}
+          />
           <Link
-            href="/contact"
+            href={`/${lang}/contact`}
             onClick={closeAll}
-            className="px-5 py-3 rounded-2xl font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-4 py-3 rounded-2xl font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            Inquire / Contact
+            {dict.nav.inquireContact}
           </Link>
           <Link
-            href="/donate"
+            href={`/${lang}/donate-now`}
             onClick={closeAll}
-            className="px-5 py-3 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-4 py-3 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            Donate Now
+            {dict.common.donateNow}
           </Link>
         </div>
 
         <div className="lg:hidden flex items-center gap-1">
-        <ThemeToggle />
-        <button
-          type="button"
-          className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-primary hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            aria-hidden="true"
+          <LanguageSwitcher lang={lang} />
+          <ThemeToggle
+            darkLabel={dict.common.switchToDark}
+            lightLabel={dict.common.switchToLight}
+          />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-primary hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMobileOpen((v) => !v)}
           >
-            {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            )}
-          </svg>
-        </button>
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              )}
+            </svg>
+          </button>
         </div>
       </nav>
 
       {/* Desktop mega menu panel */}
-      {openMenu !== null && (
+      {openMenu !== null && navSections[openMenu].items.length > 0 && (
         <div
           className="hidden lg:block absolute inset-x-0 top-full"
           onMouseEnter={cancelClose}
@@ -218,7 +242,7 @@ export default function Navbar() {
                   onClick={closeAll}
                   className="text-sm font-semibold text-primary hover:text-primary-dark inline-flex items-center gap-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  View all
+                  {dict.nav.viewAll}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
                   </svg>
@@ -272,77 +296,89 @@ export default function Navbar() {
         <ul className="px-4 py-4 space-y-1">
           {navSections.map((section, i) => (
             <li key={section.label}>
-              <button
-                type="button"
-                aria-expanded={mobileSection === i}
-                onClick={() => setMobileSection(mobileSection === i ? null : i)}
-                className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium text-ink hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                {section.label}
-                <svg
-                  className={`w-5 h-5 transition-transform duration-200 ${mobileSection === i ? "rotate-180" : ""}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  aria-hidden="true"
+              {section.items.length === 0 ? (
+                <Link
+                  href={section.href}
+                  onClick={closeAll}
+                  className="block px-4 py-4 rounded-xl text-lg font-medium text-ink hover:bg-primary/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-              </button>
-              {mobileSection === i && (
-                <ul className="pl-3 pb-2 space-y-1">
-                  {section.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        onClick={closeAll}
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-ink-muted hover:bg-primary/10 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                      >
-                        <Image
-                          src={item.image}
-                          alt=""
-                          width={44}
-                          height={44}
-                          className="rounded-lg object-cover w-11 h-11"
-                        />
-                        <span className="text-sm font-medium">{item.label}</span>
-                      </Link>
-                    </li>
-                  ))}
-                  <li>
-                    <Link
-                      href={section.href}
-                      onClick={closeAll}
-                      className="block px-4 py-3 text-sm font-semibold text-primary"
+                  {section.label}
+                </Link>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    aria-expanded={mobileSection === i}
+                    onClick={() => setMobileSection(mobileSection === i ? null : i)}
+                    className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium text-ink hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    {section.label}
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-200 ${mobileSection === i ? "rotate-180" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      aria-hidden="true"
                     >
-                      View all {section.label} →
-                    </Link>
-                  </li>
-                </ul>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </button>
+                  {mobileSection === i && (
+                    <ul className="pl-3 pb-2 space-y-1">
+                      {section.items.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            onClick={closeAll}
+                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-ink-muted hover:bg-primary/10 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                          >
+                            <Image
+                              src={item.image}
+                              alt=""
+                              width={44}
+                              height={44}
+                              className="rounded-lg object-cover w-11 h-11"
+                            />
+                            <span className="text-sm font-medium">{item.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link
+                          href={section.href}
+                          onClick={closeAll}
+                          className="block px-4 py-3 text-sm font-semibold text-primary"
+                        >
+                          {dict.nav.viewAll} — {section.label} →
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </>
               )}
             </li>
           ))}
           <li className="pt-2 flex flex-col gap-2">
             <Link
-              href="/contact"
+              href={`/${lang}/contact`}
               className="block text-center px-4 py-4 rounded-2xl font-semibold text-primary border-2 border-primary"
               onClick={closeAll}
             >
-              Inquire / Contact
+              {dict.nav.inquireContact}
             </Link>
             <Link
-              href="/donate"
+              href={`/${lang}/donate-now`}
               className="block text-center px-4 py-4 rounded-2xl font-bold text-primary-dark bg-accent"
               onClick={closeAll}
             >
-              Donate Now
+              {dict.common.donateNow}
             </Link>
             <a
               href={site.phoneHref}
               className="block text-center px-4 py-3 text-sm font-semibold text-ink-muted"
             >
-              Call us: {site.phone}
+              {dict.common.callUs}: {site.phone}
             </a>
           </li>
         </ul>

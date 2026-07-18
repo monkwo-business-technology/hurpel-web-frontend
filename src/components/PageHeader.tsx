@@ -5,14 +5,17 @@ export default function PageHeader({
   title,
   description,
   image,
+  homeHref = "/",
+  homeLabel = "Home",
 }: {
   title: string;
   description: string;
   image: string;
+  homeHref?: string;
+  homeLabel?: string;
 }) {
   return (
     <section className="relative overflow-hidden">
-      {/* Full-width banner image */}
       <div className="relative h-64 sm:h-80 lg:h-96">
         <Image
           src={image}
@@ -30,10 +33,10 @@ export default function PageHeader({
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10">
             <nav aria-label="Breadcrumb" className="text-sm text-white/80 mb-3">
               <Link
-                href="/"
+                href={homeHref}
                 className="hover:text-white transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                Home
+                {homeLabel}
               </Link>
               <span aria-hidden="true" className="mx-2">
                 /

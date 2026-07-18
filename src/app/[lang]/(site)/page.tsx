@@ -9,16 +9,33 @@ import Events from "@/components/Events";
 import DonateBand from "@/components/DonateBand";
 import Reveal from "@/components/Reveal";
 import { images } from "@/lib/images";
+import { getDictionary, type Lang } from "@/i18n";
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const dict = getDictionary(lang as Lang);
+
+  const panels = [
+    {
+      href: `/${lang}/get-involved#volunteer`,
+      image: images.involve.volunteer,
+      ...dict.involved.volunteer,
+    },
+    {
+      href: `/${lang}/get-involved`,
+      image: images.involve.partner,
+      ...dict.involved.partner,
+    },
+  ];
+
   return (
     <>
-      <HeroCarousel />
-      <TrustStrip />
-      <Services />
-      <ImpactTracker />
-      <StoryCarousel />
-      <Events />
+      <HeroCarousel lang={lang as Lang} dict={dict.hero} />
+      <TrustStrip dict={dict.trust} />
+      <Services lang={lang as Lang} dict={dict.services} learnMore={dict.common.learnMore} />
+      <ImpactTracker dict={dict.impact} />
+      <StoryCarousel dict={dict.stories} />
+      <Events lang={lang as Lang} dict={dict.events} />
 
       {/* Get involved split */}
       <section
@@ -29,31 +46,12 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <Reveal className="text-center max-w-2xl mx-auto">
             <h2 id="involved-heading" className="text-3xl sm:text-4xl font-extrabold text-primary">
-              Be Part of the Story
+              {dict.involved.heading}
             </h2>
-            <p className="mt-4 text-ink-muted">
-              Volunteer your time or partner with us — inclusion is built by people like you.
-            </p>
+            <p className="mt-4 text-ink-muted">{dict.involved.subheading}</p>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[
-              {
-                href: "/get-involved#volunteer",
-                image: images.involve.volunteer,
-                title: "Volunteer With Us",
-                description:
-                  "Join 200+ active volunteers — event crews, program companions, skills mentors, and more.",
-                cta: "Apply to Volunteer",
-              },
-              {
-                href: "/get-involved",
-                image: images.involve.partner,
-                title: "Partner With Us",
-                description:
-                  "Employers, sponsors, and community groups — let's build inclusion together.",
-                cta: "Become a Partner",
-              },
-            ].map((p, i) => (
+            {panels.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <Link
                   href={p.href}
@@ -84,7 +82,7 @@ export default function Home() {
         </div>
       </section>
 
-      <DonateBand />
+      <DonateBand lang={lang as Lang} dict={dict.donateBand} cta={dict.common.donateNow} />
     </>
   );
 }

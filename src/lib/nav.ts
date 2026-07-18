@@ -1,4 +1,5 @@
 import { images } from "@/lib/images";
+import type { Dictionary, Lang } from "@/i18n";
 
 export type MegaItem = {
   label: string;
@@ -13,107 +14,76 @@ export type NavSection = {
   items: MegaItem[];
 };
 
-export const navSections: NavSection[] = [
-  {
-    label: "Who We Are",
-    href: "/about",
-    items: [
-      {
-        label: "Our Mission & Values",
-        description: "Valued people, inclusive community — what drives us every day.",
-        href: "/about#mission",
-        image: images.about.mission,
-      },
-      {
-        label: "Our Impact",
-        description: "1,000+ people supported annually across 32 homes.",
-        href: "/about#impact",
-        image: images.story.two,
-      },
-      {
-        label: "Accreditation & Accountability",
-        description: "Proudly FOCUS Accredited — see how we stay transparent.",
-        href: "/about#accountability",
-        image: images.involve.partner,
-      },
-    ],
-  },
-  {
-    label: "Services",
-    href: "/services",
-    items: [
-      {
-        label: "Employment Services",
-        description: "Custom planning and placement for meaningful work.",
-        href: "/services#employment",
-        image: images.service.employment,
-      },
-      {
-        label: "Accommodation & Respite",
-        description: "Safe group homes and short-term respite stays.",
-        href: "/services#accommodation",
-        image: images.service.housing,
-      },
-      {
-        label: "Child & Youth Services",
-        description: "Family-centered workshops for growing minds.",
-        href: "/services#youth",
-        image: images.service.youth,
-      },
-      {
-        label: "Community Access",
-        description: "Day programs, social and recreational activities.",
-        href: "/services#community",
-        image: images.service.community,
-      },
-    ],
-  },
-  {
-    label: "Upcoming Events",
-    href: "/events",
-    items: [
-      {
-        label: "#WaitingToBelong Campaign",
-        description: "Everyone needs a safe place to live.",
-        href: "/events#waiting-to-belong",
-        image: images.event.belong,
-      },
-      {
-        label: "The Serious(ly) Fun Run",
-        description: "Saturday, September 26th, 2026 — walk, roll, or run.",
-        href: "/events#fun-run",
-        image: images.event.run,
-      },
-      {
-        label: "Smile Cookie Week",
-        description: "Every cookie sold supports local programs.",
-        href: "/events#smile-cookie",
-        image: images.event.cookie,
-      },
-    ],
-  },
-  {
-    label: "Get Involved",
-    href: "/get-involved",
-    items: [
-      {
-        label: "Volunteer With Us",
-        description: "Join 200+ active volunteers making inclusion real.",
-        href: "/get-involved#volunteer",
-        image: images.involve.volunteer,
-      },
-      {
-        label: "Donate",
-        description: "Give once or monthly — every dollar stays local.",
-        href: "/donate",
-        image: images.involve.donate,
-      },
-      {
-        label: "Contact & Support",
-        description: "Questions about services or partnership? Reach out.",
-        href: "/contact",
-        image: images.banner.contact,
-      },
-    ],
-  },
-];
+export function buildNavSections(dict: Dictionary, lang: Lang): NavSection[] {
+  const s = dict.nav.sections;
+  const p = (path: string) => `/${lang}${path}`;
+  return [
+    {
+      label: s.about.label,
+      href: p("/about"),
+      items: [
+        { ...s.about.items.mission, href: p("/about#mission"), image: images.about.mission },
+        { ...s.about.items.impact, href: p("/about#impact"), image: images.story.two },
+        {
+          ...s.about.items.accountability,
+          href: p("/about#accountability"),
+          image: images.involve.partner,
+        },
+      ],
+    },
+    {
+      label: s.whoWeSupport.label,
+      href: p("/who-we-support"),
+      items: [],
+    },
+    {
+      label: s.services.label,
+      href: p("/services"),
+      items: [
+        {
+          ...s.services.items.employment,
+          href: p("/services#employment"),
+          image: images.service.employment,
+        },
+        {
+          ...s.services.items.accommodation,
+          href: p("/services#accommodation"),
+          image: images.service.housing,
+        },
+        { ...s.services.items.youth, href: p("/services#youth"), image: images.service.youth },
+        {
+          ...s.services.items.community,
+          href: p("/services#community"),
+          image: images.service.community,
+        },
+      ],
+    },
+    {
+      label: s.events.label,
+      href: p("/events"),
+      items: [
+        { ...s.events.items.belong, href: p("/events#waiting-to-belong"), image: images.event.belong },
+        { ...s.events.items.run, href: p("/events#fun-run"), image: images.event.run },
+        { ...s.events.items.cookie, href: p("/events#smile-cookie"), image: images.event.cookie },
+      ],
+    },
+    {
+      label: s.impactOfGiving.label,
+      href: p("/impact-of-giving"),
+      items: [],
+    },
+    {
+      label: s.getInvolved.label,
+      href: p("/get-involved"),
+      items: [
+        {
+          ...s.getInvolved.items.volunteer,
+          href: p("/get-involved#volunteer"),
+          image: images.involve.volunteer,
+        },
+        { ...s.getInvolved.items.donate, href: p("/donate"), image: images.involve.donate },
+        { ...s.getInvolved.items.contact, href: p("/contact"), image: images.banner.contact },
+      ],
+    },
+  ];
+}

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import type { Dictionary } from "@/i18n";
 
-export default function NewsletterBand() {
+export default function NewsletterBand({ dict }: { dict: Dictionary["newsletter"] }) {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
 
@@ -18,23 +19,21 @@ export default function NewsletterBand() {
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 id="newsletter-heading" className="text-2xl sm:text-3xl font-extrabold">
-              See Community Impact, Monthly
+              {dict.heading}
             </h2>
-            <p className="mt-3 text-white/80 max-w-xl">
-              Stories, events, and how your support changes lives — one email a month, no noise.
-            </p>
+            <p className="mt-3 text-white/80 max-w-xl">{dict.subheading}</p>
           </div>
           {done ? (
             <p
               role="status"
               className="glass rounded-2xl px-6 py-5 text-ink font-semibold lg:justify-self-end"
             >
-              Thank you for joining! Watch your inbox for community stories.
+              {dict.thanks}
             </p>
           ) : (
             <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 lg:justify-self-end w-full lg:max-w-md">
               <label htmlFor="newsletter-email" className="sr-only">
-                Email address
+                {dict.emailLabel}
               </label>
               <input
                 id="newsletter-email"
@@ -42,14 +41,14 @@ export default function NewsletterBand() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder={dict.placeholder}
                 className="flex-1 px-5 py-4 rounded-2xl text-ink bg-surface-alt placeholder:text-ink-muted/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               />
               <button
                 type="submit"
-                className="px-7 py-4 rounded-2xl font-bold text-[#0a3a64] bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="px-7 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                Sign Up
+                {dict.signUp}
               </button>
             </form>
           )}

@@ -45,4 +45,14 @@ export const images = {
     mission: unsplash("photo-1491438590914-bc09fcaaf77a", 1200),
     story: unsplash("photo-1544027993-37dbfe43562a", 1200),
   },
+  whoWeSupport: {
+    banner: unsplash("photo-1517649763962-0c623066013b", 1920),
+    bike: unsplash("photo-1541625602330-2277a4c46182", 1200),
+    care: unsplash("photo-1544027993-37dbfe43562a", 1200),
+  },
+  impactOfGiving: {
+    banner: unsplash("photo-1532629345422-7515f3d16bb6", 1920),
+    partnership: unsplash("photo-1521791136064-7986c2920216", 1200),
+    story: unsplash("photo-1469571486292-0ba58a3f068b", 1200),
+  },
 } as const;

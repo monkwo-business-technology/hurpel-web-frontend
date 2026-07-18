@@ -5,50 +5,55 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 import { images } from "@/lib/images";
+import { getDictionary, type Lang } from "@/i18n";
 
-export const metadata: Metadata = {
-  title: `Upcoming Events — ${site.name}`,
-  description:
-    "Campaigns and events: #WaitingToBelong, the Serious(ly) Fun Run, and Smile Cookie Week.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = getDictionary(lang as Lang);
+  return {
+    title: `${dict.pages.events.title} — ${site.name}`,
+    description: dict.pages.events.metaDescription,
+  };
+}
 
-const events = [
-  {
-    id: "waiting-to-belong",
-    tag: "#WaitingToBelongCampaign",
-    title: "Everyone Needs A Safe Place to Live.",
-    image: images.event.belong,
-    description:
-      "Too many people with developmental disabilities are still waiting for a safe, supported home. The #WaitingToBelong campaign funds new group home spaces and raises awareness with policymakers.",
-    cta: { label: "Support the campaign", href: "/donate" },
-  },
-  {
-    id: "fun-run",
-    tag: "Community in Motion",
-    title: "The Serious(ly) Fun Run",
-    image: images.event.run,
-    description:
-      "Save the date: Saturday, September 26th, 2026. A fully accessible route through the heart of the community — walk, roll, or run. Team registration, family-friendly, and 100% of proceeds stay local.",
-    cta: { label: "Volunteer for race day", href: "/get-involved#volunteer" },
-  },
-  {
-    id: "smile-cookie",
-    tag: "Smile Cookie Week",
-    title: "Partnership Drive",
-    image: images.event.cookie,
-    description:
-      "Every smile cookie sold at participating locations supports local programs. Grab a cookie, share a smile, change a life — and ask your workplace about matching partnerships.",
-    cta: { label: "Become a partner", href: "/contact" },
-  },
-];
+export default async function EventsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const dict = getDictionary(lang as Lang);
+  const t = dict.pages.events;
 
-export default function EventsPage() {
+  const events = [
+    {
+      id: "waiting-to-belong",
+      ...t.items.belong,
+      image: images.event.belong,
+      href: `/${lang}/donate-now`,
+    },
+    {
+      id: "fun-run",
+      ...t.items.run,
+      image: images.event.run,
+      href: `/${lang}/get-involved#volunteer`,
+    },
+    {
+      id: "smile-cookie",
+      ...t.items.cookie,
+      image: images.event.cookie,
+      href: `/${lang}/contact`,
+    },
+  ];
+
   return (
     <>
       <PageHeader
-        title="Upcoming Events"
-        description="Show up, get moving, and stand with your neighbours."
+        title={t.title}
+        description={t.banner}
         image={images.banner.events}
+        homeHref={`/${lang}`}
+        homeLabel={dict.common.home}
       />
 
       <section className="bg-surface">
@@ -71,10 +76,10 @@ export default function EventsPage() {
                   <h2 className="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">{e.title}</h2>
                   <p className="mt-4 text-ink-muted text-lg">{e.description}</p>
                   <Link
-                    href={e.cta.href}
+                    href={e.href}
                     className="mt-8 inline-block px-6 py-3.5 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    {e.cta.label}
+                    {e.cta}
                   </Link>
                 </div>
               </article>

@@ -2,21 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NewsletterBand from "@/components/NewsletterBand";
 import { site } from "@/lib/site";
-
-const quickLinks = [
-  { href: "/about", label: "Who We Are" },
-  { href: "/events", label: "Upcoming Events" },
-  { href: "/get-involved", label: "Get Involved" },
-  { href: "/donate", label: "Donate" },
-  { href: "/contact", label: "Contact" },
-];
-
-const serviceLinks = [
-  { href: "/services#employment", label: "Employment Services" },
-  { href: "/services#accommodation", label: "Accommodation & Respite" },
-  { href: "/services#youth", label: "Child & Youth Services" },
-  { href: "/services#community", label: "Community Access" },
-];
+import type { Dictionary, Lang } from "@/i18n";
 
 const socials = [
   {
@@ -36,10 +22,27 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ lang, dict }: { lang: Lang; dict: Dictionary }) {
+  const s = dict.nav.sections;
+  const quickLinks = [
+    { href: `/${lang}/about`, label: s.about.label },
+    { href: `/${lang}/who-we-support`, label: s.whoWeSupport.label },
+    { href: `/${lang}/events`, label: s.events.label },
+    { href: `/${lang}/impact-of-giving`, label: s.impactOfGiving.label },
+    { href: `/${lang}/get-involved`, label: s.getInvolved.label },
+    { href: `/${lang}/donate`, label: s.getInvolved.items.donate.label },
+    { href: `/${lang}/contact`, label: dict.pages.contact.title },
+  ];
+  const serviceLinks = [
+    { href: `/${lang}/services#employment`, label: s.services.items.employment.label },
+    { href: `/${lang}/services#accommodation`, label: s.services.items.accommodation.label },
+    { href: `/${lang}/services#youth`, label: s.services.items.youth.label },
+    { href: `/${lang}/services#community`, label: s.services.items.community.label },
+  ];
+
   return (
     <footer className="bg-primary-dark text-white">
-      <NewsletterBand />
+      <NewsletterBand dict={dict.newsletter} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
@@ -53,18 +56,18 @@ export default function Footer() {
             <p className="font-bold text-lg">{site.name}</p>
           </div>
           <p className="mt-4 text-slate-300 text-sm leading-relaxed max-w-sm">
-            {site.description}
+            {dict.pages.home.description}
           </p>
           <p className="mt-4 inline-flex items-center gap-2 text-slate-300 text-sm">
             <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
             </svg>
-            Registered Charity {site.charityNumber} · FOCUS Accredited
+            {dict.common.charityLine} {site.charityNumber} · FOCUS
           </p>
         </div>
 
         <div>
-          <h2 className="font-semibold text-lg mb-4">Explore</h2>
+          <h2 className="font-semibold text-lg mb-4">{dict.footer.explore}</h2>
           <ul className="space-y-2 text-slate-300 text-sm">
             {quickLinks.map((l) => (
               <li key={l.href}>
@@ -80,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="font-semibold text-lg mb-4">Services</h2>
+          <h2 className="font-semibold text-lg mb-4">{dict.footer.servicesHeading}</h2>
           <ul className="space-y-2 text-slate-300 text-sm">
             {serviceLinks.map((l) => (
               <li key={l.href}>
@@ -96,7 +99,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="font-semibold text-lg mb-4">Contact</h2>
+          <h2 className="font-semibold text-lg mb-4">{dict.footer.contactHeading}</h2>
           <ul className="space-y-2 text-slate-300 text-sm">
             <li>
               <a
@@ -138,7 +141,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-400">
-          © 2026 {site.name}. Built for inclusion.
+          © 2026 {site.name}. {dict.footer.builtFor}
         </p>
       </div>
     </footer>

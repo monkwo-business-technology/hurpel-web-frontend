@@ -4,40 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { images } from "@/lib/images";
+import type { Dictionary } from "@/i18n";
 
-type Story = {
-  quote: string;
-  name: string;
-  role: string;
-  image: string;
-};
+const storyImages = [images.story.one, images.story.two, images.story.three];
 
-const stories: Story[] = [
-  {
-    quote:
-      "For the first time, my brother has a home of his own and friends who show up for him. Hurpel didn't just find him housing — they found him a community.",
-    name: "Melissa T.",
-    role: "Sister of a person supported",
-    image: images.story.one,
-  },
-  {
-    quote:
-      "The employment team believed in me before I believed in myself. Two years later, I love my job and my co-workers feel like family.",
-    name: "James R.",
-    role: "Person supported, Employment Services",
-    image: images.story.two,
-  },
-  {
-    quote:
-      "Respite gave our family room to breathe. Knowing our daughter is safe, happy, and doing things she loves — that's everything.",
-    name: "The Okafor Family",
-    role: "Respite Services",
-    image: images.story.three,
-  },
-];
-
-export default function StoryCarousel() {
+export default function StoryCarousel({ dict }: { dict: Dictionary["stories"] }) {
   const [index, setIndex] = useState(0);
+  const stories = dict.items.map((s, i) => ({ ...s, image: storyImages[i % storyImages.length] }));
   const story = stories[index];
 
   return (
@@ -45,11 +18,9 @@ export default function StoryCarousel() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <Reveal className="text-center max-w-2xl mx-auto">
           <h2 id="stories-heading" className="text-3xl sm:text-4xl font-extrabold text-primary">
-            Stories of Belonging
+            {dict.heading}
           </h2>
-          <p className="mt-4 text-ink-muted">
-            Real people, real families, real community — in their own words.
-          </p>
+          <p className="mt-4 text-ink-muted">{dict.subheading}</p>
         </Reveal>
 
         <Reveal className="mt-12">
@@ -81,14 +52,14 @@ export default function StoryCarousel() {
                 <p className="text-sm text-ink-muted">{story.role}</p>
               </figcaption>
 
-              <div className="mt-8 flex items-center gap-2" role="tablist" aria-label="Choose story">
+              <div className="mt-8 flex items-center gap-2" role="tablist" aria-label={dict.chooseStory}>
                 {stories.map((s, i) => (
                   <button
                     key={s.name}
                     type="button"
                     role="tab"
                     aria-selected={index === i}
-                    aria-label={`Story ${i + 1}: ${s.name}`}
+                    aria-label={`${dict.story} ${i + 1}: ${s.name}`}
                     onClick={() => setIndex(i)}
                     className={`h-3 rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                       index === i ? "w-8 bg-primary" : "w-3 bg-primary/25 hover:bg-primary/50"

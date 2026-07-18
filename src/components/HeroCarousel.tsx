@@ -4,65 +4,49 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/images";
-
-type Slide = {
-  eyebrow: string;
-  title: string;
-  titleAccent: string;
-  description: string;
-  image: string;
-  primary: { label: string; href: string };
-  secondary: { label: string; href: string };
-};
-
-const slides: Slide[] = [
-  {
-    eyebrow: "Hurpel Support Services",
-    title: "Valued People.",
-    titleAccent: "Inclusive Community.",
-    description:
-      "We provide quality supports for people with developmental disabilities to live fulfilled lives, in collaboration with families and the community.",
-    image: images.hero.belong,
-    primary: { label: "Donate Today", href: "/donate" },
-    secondary: { label: "Explore Services", href: "/services" },
-  },
-  {
-    eyebrow: "Our Services Ecosystem",
-    title: "Support Built",
-    titleAccent: "Around You.",
-    description:
-      "Employment, accommodation and respite, child and youth programs, and community access — person-centered supports for every stage of life.",
-    image: images.hero.services,
-    primary: { label: "View All Services", href: "/services" },
-    secondary: { label: "Access Support", href: "/contact" },
-  },
-  {
-    eyebrow: "Community in Motion",
-    title: "The Serious(ly)",
-    titleAccent: "Fun Run 2026.",
-    description:
-      "Save the date: Saturday, September 26th, 2026. Walk, roll, or run — everyone belongs at the start line.",
-    image: images.hero.events,
-    primary: { label: "See Upcoming Events", href: "/events" },
-    secondary: { label: "Get Involved", href: "/get-involved" },
-  },
-];
-
-const chips = [
-  { value: "1,000+", label: "people supported yearly" },
-  { value: "32", label: "safe group homes" },
-  { value: "200+", label: "active volunteers" },
-];
+import type { Dictionary, Lang } from "@/i18n";
 
 const AUTOPLAY_MS = 6000;
 
-export default function HeroCarousel() {
+export default function HeroCarousel({
+  lang,
+  dict,
+}: {
+  lang: Lang;
+  dict: Dictionary["hero"];
+}) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reducedRef = useRef(false);
 
-  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), []);
-  const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), []);
+  const slides = [
+    {
+      ...dict.slides.belong,
+      image: images.hero.belong,
+      primaryHref: `/${lang}/donate-now`,
+      secondaryHref: `/${lang}/services`,
+    },
+    {
+      ...dict.slides.services,
+      image: images.hero.services,
+      primaryHref: `/${lang}/services`,
+      secondaryHref: `/${lang}/contact`,
+    },
+    {
+      ...dict.slides.events,
+      image: images.hero.events,
+      primaryHref: `/${lang}/events`,
+      secondaryHref: `/${lang}/get-involved`,
+    },
+  ];
+
+  const chips = [dict.chips.people, dict.chips.homes, dict.chips.volunteers];
+
+  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
+  const prev = useCallback(
+    () => setIndex((i) => (i - 1 + slides.length) % slides.length),
+    [slides.length]
+  );
 
   useEffect(() => {
     reducedRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -77,14 +61,13 @@ export default function HeroCarousel() {
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="Highlights"
+      aria-label={dict.highlights}
       className="relative overflow-hidden bg-primary-dark"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      {/* Full-bleed photo backgrounds */}
       {slides.map((slide, i) => (
         <div
           key={slide.eyebrow}
@@ -113,7 +96,7 @@ export default function HeroCarousel() {
               key={slide.eyebrow}
               role="group"
               aria-roledescription="slide"
-              aria-label={`Slide ${i + 1} of ${slides.length}: ${slide.eyebrow}`}
+              aria-label={`${i + 1} / ${slides.length}: ${slide.eyebrow}`}
               aria-hidden={index !== i}
               className={`transition-opacity duration-700 ${
                 index === i
@@ -131,41 +114,38 @@ export default function HeroCarousel() {
               <p className="mt-6 text-lg text-white/90 max-w-xl">{slide.description}</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href={slide.primary.href}
+                  href={slide.primaryHref}
                   className="px-8 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-dark"
                 >
-                  {slide.primary.label}
+                  {slide.primary}
                 </Link>
                 <Link
-                  href={slide.secondary.href}
+                  href={slide.secondaryHref}
                   className="px-8 py-4 rounded-2xl font-semibold text-white border-2 border-white/70 hover:bg-white hover:text-primary-dark transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
-                  {slide.secondary.label}
+                  {slide.secondary}
                 </Link>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Floating stat chips */}
         <div className="mt-12 flex flex-wrap gap-3">
           {chips.map((c) => (
             <p
               key={c.label}
               className="glass rounded-2xl px-5 py-3 text-sm font-semibold text-ink"
             >
-              <span className="text-lg font-extrabold text-primary">{c.value}</span>{" "}
-              {c.label}
+              <span className="text-lg font-extrabold text-primary">{c.value}</span> {c.label}
             </p>
           ))}
         </div>
 
-        {/* Controls */}
         <div className="mt-10 flex items-center gap-4">
           <button
             type="button"
             onClick={prev}
-            aria-label="Previous slide"
+            aria-label={dict.prevSlide}
             className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white hover:text-primary-dark transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
@@ -173,14 +153,14 @@ export default function HeroCarousel() {
             </svg>
           </button>
 
-          <div className="flex items-center gap-2" role="tablist" aria-label="Choose slide">
+          <div className="flex items-center gap-2" role="tablist" aria-label={dict.chooseSlide}>
             {slides.map((s, i) => (
               <button
                 key={s.eyebrow}
                 type="button"
                 role="tab"
                 aria-selected={index === i}
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`${dict.goToSlide} ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-3 rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   index === i ? "w-8 bg-accent" : "w-3 bg-white/50 hover:bg-white/80"
@@ -192,7 +172,7 @@ export default function HeroCarousel() {
           <button
             type="button"
             onClick={next}
-            aria-label="Next slide"
+            aria-label={dict.nextSlide}
             className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white hover:text-primary-dark transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">

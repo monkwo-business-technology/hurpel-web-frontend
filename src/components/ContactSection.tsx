@@ -1,8 +1,10 @@
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
+import type { Dictionary } from "@/i18n";
 
-export default function ContactSection() {
+export default function ContactSection({ dict }: { dict: Dictionary }) {
+  const t = dict.pages.contact;
   return (
     <section
       id="contact"
@@ -13,12 +15,9 @@ export default function ContactSection() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-2 lg:items-start">
         <Reveal>
           <h2 id="contact-heading" className="text-3xl sm:text-4xl font-extrabold text-primary">
-            Let&apos;s Connect
+            {t.heading}
           </h2>
-          <p className="mt-4 text-ink-muted max-w-md">
-            Questions about services, volunteering, or partnership? We&apos;d love to hear from
-            you.
-          </p>
+          <p className="mt-4 text-ink-muted max-w-md">{t.subheading}</p>
           <ul className="mt-8 space-y-5">
             <li className="flex items-center gap-4">
               <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl glass text-primary">
@@ -27,7 +26,7 @@ export default function ContactSection() {
                 </svg>
               </span>
               <div>
-                <p className="text-sm text-ink-muted">Give Us A Call</p>
+                <p className="text-sm text-ink-muted">{t.call}</p>
                 <a
                   href={site.phoneHref}
                   className="font-semibold text-ink hover:text-primary transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -43,7 +42,7 @@ export default function ContactSection() {
                 </svg>
               </span>
               <div>
-                <p className="text-sm text-ink-muted">Email Us</p>
+                <p className="text-sm text-ink-muted">{t.emailUs}</p>
                 <a
                   href={`mailto:${site.email}`}
                   className="font-semibold text-ink hover:text-primary transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -59,14 +58,14 @@ export default function ContactSection() {
                 </svg>
               </span>
               <div>
-                <p className="text-sm text-ink-muted">Our Office</p>
+                <p className="text-sm text-ink-muted">{t.office}</p>
                 <p className="font-semibold text-ink">{site.address}</p>
               </div>
             </li>
           </ul>
         </Reveal>
         <Reveal delay={150}>
-          <ContactForm />
+          <ContactForm dict={dict.contactForm} />
         </Reveal>
       </div>
     </section>

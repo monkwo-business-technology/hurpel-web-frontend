@@ -1,17 +1,12 @@
 "use client";
 
 import { useState } from "react";
-
-const inquiryOptions = [
-  "General Question",
-  "Accessing Support",
-  "Volunteering",
-  "Employment/Hiring",
-];
+import type { Dictionary } from "@/i18n";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function ContactForm() {
+export default function ContactForm({ dict }: { dict: Dictionary["contactForm"] }) {
+  const inquiryOptions = dict.inquiryOptions;
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -37,12 +32,12 @@ export default function ContactForm() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "Something went wrong. Please try again.");
+        throw new Error(data?.error ?? dict.genericError);
       }
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : dict.genericError);
     }
   }
 
@@ -54,10 +49,8 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-ink">Message sent!</h3>
-        <p className="mt-3 text-ink-muted">
-          Thank you for reaching out. Our team will get back to you within one business day.
-        </p>
+        <h3 className="text-2xl font-bold text-ink">{dict.successTitle}</h3>
+        <p className="mt-3 text-ink-muted">{dict.successBody}</p>
       </div>
     );
   }
@@ -69,7 +62,7 @@ export default function ContactForm() {
       aria-labelledby="contact-form-heading"
     >
       <h3 id="contact-form-heading" className="sr-only">
-        Contact form
+        {dict.heading}
       </h3>
 
       <div className="float-field">
@@ -82,7 +75,7 @@ export default function ContactForm() {
           placeholder=" "
           className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
         />
-        <label htmlFor="contact-name">Full Name</label>
+        <label htmlFor="contact-name">{dict.fullName}</label>
       </div>
 
       <div className="float-field">
@@ -95,12 +88,12 @@ export default function ContactForm() {
           placeholder=" "
           className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
         />
-        <label htmlFor="contact-email">Email Address</label>
+        <label htmlFor="contact-email">{dict.email}</label>
       </div>
 
       <div>
         <label htmlFor="contact-inquiry" className="block text-sm font-medium text-ink mb-1.5">
-          Nature of Inquiry
+          {dict.inquiryLabel}
         </label>
         <select
           id="contact-inquiry"
@@ -110,7 +103,7 @@ export default function ContactForm() {
           className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors cursor-pointer"
         >
           <option value="" disabled>
-            Select a topic…
+            {dict.selectTopic}
           </option>
           {inquiryOptions.map((o) => (
             <option key={o} value={o}>
@@ -129,7 +122,7 @@ export default function ContactForm() {
           placeholder=" "
           className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors resize-y"
         />
-        <label htmlFor="contact-message">How can our community help yours?</label>
+        <label htmlFor="contact-message">{dict.messageLabel}</label>
       </div>
 
       {/* Honeypot — hidden from real users */}
@@ -144,9 +137,7 @@ export default function ContactForm() {
           name="newsletter"
           className="mt-1 w-5 h-5 rounded accent-primary-solid"
         />
-        <span className="text-sm text-ink-muted">
-          Sign up for our monthly Email Newsletter to see community impact.
-        </span>
+        <span className="text-sm text-ink-muted">{dict.newsletterOptIn}</span>
       </label>
 
       {status === "error" && (
@@ -160,7 +151,7 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="w-full px-6 py-4 rounded-2xl font-bold text-white bg-primary-solid hover:bg-primary-solid-hover transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       >
-        {status === "sending" ? "Sending…" : "Send Message"}
+        {status === "sending" ? dict.sending : dict.send}
       </button>
     </form>
   );
