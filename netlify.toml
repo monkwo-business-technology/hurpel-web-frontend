@@ -1,0 +1,6 @@
+# EMAIL_TO / EMAIL_FROM / EMAIL_FROM_NAME are the site's public contact and
+# sender identity (rendered on pages by design); EMAIL_PROVIDER is just the
+# provider name ("brevo" | "zoho"). None are credentials. Real secrets
+# (BREVO_API_KEY, ZOHO_APP_PASSWORD) remain covered by the scanner.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "EMAIL_TO,EMAIL_FROM,EMAIL_FROM_NAME,EMAIL_PROVIDER"
