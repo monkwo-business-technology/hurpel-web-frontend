@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/images";
+import Greeting from "@/components/Greeting";
 import type { Dictionary, Lang } from "@/i18n";
 
 const AUTOPLAY_MS = 6000;
@@ -89,8 +90,19 @@ export default function HeroCarousel({
         </div>
       ))}
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32">
-        <div className="relative min-h-[420px] sm:min-h-[380px] max-w-2xl">
+      {/* Ambient floating shapes */}
+      <div
+        className="float-slow absolute top-24 right-[12%] w-24 h-24 rounded-full bg-accent/20 blur-xl hidden lg:block"
+        aria-hidden="true"
+      />
+      <div
+        className="float-slower absolute bottom-32 right-[28%] w-16 h-16 rounded-full bg-white/15 blur-lg hidden lg:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <Greeting dict={dict.greeting} />
+        <div className="relative mt-4 min-h-[420px] sm:min-h-[380px] max-w-2xl">
           {slides.map((slide, i) => (
             <div
               key={slide.eyebrow}

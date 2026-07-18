@@ -99,6 +99,13 @@ const dict = {
     },
   },
   hero: {
+    greeting: {
+      morning: "Good morning",
+      afternoon: "Good afternoon",
+      evening: "Good evening",
+      welcome: "welcome",
+      welcomeBack: "welcome back",
+    },
     slides: {
       belong: {
         eyebrow: "Hurpel Support Services",
@@ -181,6 +188,65 @@ const dict = {
       volunteers: "Active Volunteers & 250 Member Families",
     },
     accredited: "Proudly FOCUS Accredited for maximum accountability.",
+    stories: {
+      people: "…like James, who landed his first paycheque with a job coach at his side.",
+      staff: "…like Priya, a residential worker who has celebrated 11 birthdays with her house.",
+      homes: "…like the Maple Street home, where four housemates became a family.",
+      volunteers: "…like Dan, who marshals the Fun Run every year with his daughter.",
+    },
+  },
+  quiz: {
+    eyebrow: "Two-Minute Match",
+    heading: "Find Your Way to Help",
+    subheading: "Answer three quick questions and we'll point you to the way you can matter most.",
+    questions: [
+      {
+        question: "How much time could you give?",
+        options: [
+          { label: "A few hours, sometimes", path: "volunteer" },
+          { label: "Not much — but I can give", path: "donate" },
+          { label: "My organization has resources", path: "partner" },
+        ],
+      },
+      {
+        question: "What sounds most like you?",
+        options: [
+          { label: "Being there with people", path: "volunteer" },
+          { label: "Quietly making things possible", path: "donate" },
+          { label: "Building something bigger together", path: "partner" },
+        ],
+      },
+      {
+        question: "What would make you proudest?",
+        options: [
+          { label: "A friendship that changed someone's week", path: "volunteer" },
+          { label: "A home or job that exists because of me", path: "donate" },
+          { label: "My team rallying behind inclusion", path: "partner" },
+        ],
+      },
+    ],
+    results: {
+      volunteer: {
+        title: "You're a Volunteer at heart",
+        description:
+          "Event crews, program companions, skills mentors — a few hours of your presence changes someone's whole week.",
+        cta: "Apply to Volunteer",
+      },
+      donate: {
+        title: "You're a Quiet Champion",
+        description:
+          "Your gift stays local: $50 funds a week of job coaching, $100 gives a family a day of rest. Every dollar works here.",
+        cta: "Give Now",
+      },
+      partner: {
+        title: "You're a Community Builder",
+        description:
+          "Employers, sponsors, and groups make inclusion systemic — hiring, matching gifts, sponsoring events.",
+        cta: "Partner With Us",
+      },
+    },
+    restart: "Start over",
+    stepLabel: "Question",
   },
   stories: {
     heading: "Stories of Belonging",

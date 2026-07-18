@@ -103,6 +103,13 @@ export const fr: Dict = {
     },
   },
   hero: {
+    greeting: {
+      morning: "Bonjour",
+      afternoon: "Bon après-midi",
+      evening: "Bonsoir",
+      welcome: "bienvenue",
+      welcomeBack: "bon retour parmi nous",
+    },
     slides: {
       belong: {
         eyebrow: "Hurpel Support Services",
@@ -186,6 +193,66 @@ export const fr: Dict = {
       volunteers: "Bénévoles actifs et 250 familles membres",
     },
     accredited: "Fièrement agréé FOCUS pour une responsabilité maximale.",
+    stories: {
+      people: "…comme James, qui a reçu sa première paie avec un accompagnateur à ses côtés.",
+      staff: "…comme Priya, intervenante résidentielle, qui a célébré 11 anniversaires avec sa maisonnée.",
+      homes: "…comme le foyer de la rue Maple, où quatre colocataires sont devenus une famille.",
+      volunteers: "…comme Dan, bénévole de la course Fun Run chaque année avec sa fille.",
+    },
+  },
+  quiz: {
+    eyebrow: "Jumelage en deux minutes",
+    heading: "Trouvez votre façon d'aider",
+    subheading:
+      "Répondez à trois questions rapides et nous vous montrerons où vous pouvez compter le plus.",
+    questions: [
+      {
+        question: "Combien de temps pourriez-vous donner?",
+        options: [
+          { label: "Quelques heures, à l'occasion", path: "volunteer" },
+          { label: "Peu de temps — mais je peux donner", path: "donate" },
+          { label: "Mon organisation a des ressources", path: "partner" },
+        ],
+      },
+      {
+        question: "Qu'est-ce qui vous ressemble le plus?",
+        options: [
+          { label: "Être présent avec les gens", path: "volunteer" },
+          { label: "Rendre les choses possibles, discrètement", path: "donate" },
+          { label: "Bâtir quelque chose de plus grand ensemble", path: "partner" },
+        ],
+      },
+      {
+        question: "Qu'est-ce qui vous rendrait le plus fier?",
+        options: [
+          { label: "Une amitié qui a changé la semaine de quelqu'un", path: "volunteer" },
+          { label: "Un foyer ou un emploi qui existe grâce à moi", path: "donate" },
+          { label: "Mon équipe mobilisée pour l'inclusion", path: "partner" },
+        ],
+      },
+    ],
+    results: {
+      volunteer: {
+        title: "Vous êtes bénévole dans l'âme",
+        description:
+          "Équipes d'événements, accompagnateurs, mentors — quelques heures de votre présence changent toute la semaine de quelqu'un.",
+        cta: "Devenir bénévole",
+      },
+      donate: {
+        title: "Vous êtes un champion discret",
+        description:
+          "Votre don reste local : 50 $ financent une semaine d'accompagnement à l'emploi, 100 $ offrent une journée de répit à une famille.",
+        cta: "Donner maintenant",
+      },
+      partner: {
+        title: "Vous êtes un bâtisseur de communauté",
+        description:
+          "Employeurs, commanditaires et groupes rendent l'inclusion durable — embauche, jumelage de dons, commandite d'événements.",
+        cta: "Devenir partenaire",
+      },
+    },
+    restart: "Recommencer",
+    stepLabel: "Question",
   },
   stories: {
     heading: "Histoires d'appartenance",

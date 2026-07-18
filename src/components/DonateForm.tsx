@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Celebration from "@/components/Celebration";
 import type { Dictionary } from "@/i18n";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -67,6 +68,7 @@ export default function DonateForm({ dict }: { dict: Dictionary["donateForm"] })
         role="status"
         className="bg-surface-alt rounded-2xl shadow-xl p-10 text-center max-w-xl mx-auto"
       >
+        <Celebration />
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
           <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />

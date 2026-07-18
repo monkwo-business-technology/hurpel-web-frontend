@@ -14,10 +14,10 @@ const icons = {
 
 export default function ImpactTracker({ dict }: { dict: Dictionary["impact"] }) {
   const stats = [
-    { end: 1000, suffix: "+", label: dict.stats.people, icon: icons.people },
-    { end: 500, suffix: "+", label: dict.stats.staff, icon: icons.staff },
-    { end: 32, suffix: "", label: dict.stats.homes, icon: icons.homes },
-    { end: 200, suffix: "+", label: dict.stats.volunteers, icon: icons.volunteers },
+    { end: 1000, suffix: "+", label: dict.stats.people, icon: icons.people, story: dict.stories.people },
+    { end: 500, suffix: "+", label: dict.stats.staff, icon: icons.staff, story: dict.stories.staff },
+    { end: 32, suffix: "", label: dict.stats.homes, icon: icons.homes, story: dict.stories.homes },
+    { end: 200, suffix: "+", label: dict.stats.volunteers, icon: icons.volunteers, story: dict.stories.volunteers },
   ];
 
   return (
@@ -29,15 +29,22 @@ export default function ImpactTracker({ dict }: { dict: Dictionary["impact"] }) 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 100} className="text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 mb-4">
-                <svg className="w-7 h-7 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d={s.icon} />
-                </svg>
+              <div className="stat-flip relative rounded-2xl p-2 -m-2" tabIndex={0}>
+                <div className="stat-number">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 mb-4">
+                    <svg className="w-7 h-7 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d={s.icon} />
+                    </svg>
+                  </div>
+                  <p className="text-3xl sm:text-4xl font-extrabold">
+                    <CountUp end={s.end} suffix={s.suffix} />
+                  </p>
+                  <p className="mt-2 text-sm text-slate-200">{s.label}</p>
+                </div>
+                <p className="stat-story absolute inset-0 flex items-center justify-center px-3 text-center text-sm font-semibold text-accent leading-relaxed">
+                  {s.story}
+                </p>
               </div>
-              <p className="text-3xl sm:text-4xl font-extrabold">
-                <CountUp end={s.end} suffix={s.suffix} />
-              </p>
-              <p className="mt-2 text-sm text-slate-200">{s.label}</p>
             </Reveal>
           ))}
         </div>

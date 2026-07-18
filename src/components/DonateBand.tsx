@@ -16,7 +16,15 @@ export default function DonateBand({
       aria-labelledby="donate-band-heading"
       className="relative overflow-hidden bg-gradient-to-br from-accent via-accent to-accent-dark"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div
+        className="float-slow absolute -top-8 right-[15%] w-32 h-32 rounded-full bg-white/15 blur-xl"
+        aria-hidden="true"
+      />
+      <div
+        className="float-slower absolute bottom-4 left-[8%] w-20 h-20 rounded-full bg-primary/10 blur-lg"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <Reveal className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <h2

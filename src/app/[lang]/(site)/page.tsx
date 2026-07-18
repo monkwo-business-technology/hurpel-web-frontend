@@ -7,6 +7,7 @@ import Services from "@/components/Services";
 import StoryCarousel from "@/components/StoryCarousel";
 import Events from "@/components/Events";
 import DonateBand from "@/components/DonateBand";
+import HelpQuiz from "@/components/HelpQuiz";
 import Reveal from "@/components/Reveal";
 import { images } from "@/lib/images";
 import { getDictionary, type Lang } from "@/i18n";
@@ -52,7 +53,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {panels.map((p, i) => (
-              <Reveal key={p.title} delay={i * 100}>
+              <Reveal key={p.title} delay={i * 100} direction={i === 0 ? "left" : "right"}>
                 <Link
                   href={p.href}
                   className="group relative block h-80 rounded-2xl overflow-hidden shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -81,6 +82,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </div>
       </section>
+
+      <HelpQuiz lang={lang as Lang} dict={dict.quiz} />
 
       <DonateBand lang={lang as Lang} dict={dict.donateBand} cta={dict.common.donateNow} />
     </>

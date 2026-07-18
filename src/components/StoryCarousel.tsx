@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import Parallax from "@/components/Parallax";
 import { images } from "@/lib/images";
 import type { Dictionary } from "@/i18n";
 
@@ -25,16 +26,18 @@ export default function StoryCarousel({ dict }: { dict: Dictionary["stories"] })
 
         <Reveal className="mt-12">
           <div className="grid gap-8 lg:grid-cols-[420px_1fr] lg:items-center max-w-5xl mx-auto">
-            <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                key={story.image}
-                src={story.image}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 420px, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <Parallax>
+              <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  key={story.image}
+                  src={story.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 420px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </Parallax>
             <figure className="card-soft rounded-2xl p-8 sm:p-10 relative">
               <svg
                 className="w-10 h-10 text-accent mb-4"
