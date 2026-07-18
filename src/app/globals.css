@@ -27,6 +27,8 @@
 }
 
 html {
+  /* Global scale-down: all rem-based sizing (Tailwind spacing, text) shrinks with this */
+  font-size: 87.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
 }

@@ -21,7 +21,8 @@ const slides: Slide[] = [
     titleAccent: "Inclusive Community.",
     description:
       "We provide quality supports for people with developmental disabilities to live fulfilled lives, in collaboration with families and the community.",
-    image: "/images/hero-belong.svg",
+    image:
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
     primary: { label: "Donate Today", href: "/donate" },
     secondary: { label: "Explore Services", href: "/services" },
   },
@@ -31,7 +32,8 @@ const slides: Slide[] = [
     titleAccent: "Around You.",
     description:
       "Employment, accommodation and respite, child and youth programs, and community access — person-centered supports for every stage of life.",
-    image: "/images/hero-services.svg",
+    image:
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1600&q=80",
     primary: { label: "View All Services", href: "/services" },
     secondary: { label: "Access Support", href: "/contact" },
   },
@@ -41,7 +43,8 @@ const slides: Slide[] = [
     titleAccent: "Fun Run 2026.",
     description:
       "Save the date: Saturday, September 26th, 2026. Walk, roll, or run — everyone belongs at the start line.",
-    image: "/images/hero-events.svg",
+    image:
+      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1600&q=80",
     primary: { label: "See Upcoming Events", href: "/events" },
     secondary: { label: "Get Involved", href: "/get-involved" },
   },

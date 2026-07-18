@@ -36,7 +36,7 @@ export default function AboutPage() {
       <PageHeader
         title="Who We Are"
         description="A community organization providing quality supports for people with developmental disabilities to live fulfilled lives."
-        image="/images/about.svg"
+        image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section id="mission" className="bg-surface scroll-mt-24">

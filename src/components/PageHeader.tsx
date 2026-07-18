@@ -11,30 +11,40 @@ export default function PageHeader({
   image: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary-light via-white to-surface">
-      <div className="blob w-80 h-80 bg-primary/40 -top-24 -left-16" aria-hidden="true" />
-      <div className="blob w-72 h-72 bg-accent/50 top-10 right-0" aria-hidden="true" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16 grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
-        <div className="glass rounded-2xl p-8 sm:p-10">
-          <nav aria-label="Breadcrumb" className="text-sm text-ink-muted mb-4">
-            <Link
-              href="/"
-              className="hover:text-primary transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              Home
-            </Link>
-            <span aria-hidden="true" className="mx-2">
-              /
-            </span>
-            <span className="text-primary font-semibold">{title}</span>
-          </nav>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight">
-            {title}
-          </h1>
-          <p className="mt-4 text-lg text-ink-muted max-w-2xl">{description}</p>
-        </div>
-        <div className="relative hidden lg:block h-56 rounded-2xl overflow-hidden shadow-xl">
-          <Image src={image} alt="" fill sizes="320px" className="object-cover" priority />
+    <section className="relative overflow-hidden">
+      {/* Full-width banner image */}
+      <div className="relative h-64 sm:h-80 lg:h-96">
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-primary-dark/85 via-primary-dark/40 to-transparent"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-x-0 bottom-0">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10">
+            <nav aria-label="Breadcrumb" className="text-sm text-white/80 mb-3">
+              <Link
+                href="/"
+                className="hover:text-white transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Home
+              </Link>
+              <span aria-hidden="true" className="mx-2">
+                /
+              </span>
+              <span className="text-accent font-semibold">{title}</span>
+            </nav>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-sm">
+              {title}
+            </h1>
+            <p className="mt-3 text-lg text-white/90 max-w-2xl">{description}</p>
+          </div>
         </div>
       </div>
     </section>

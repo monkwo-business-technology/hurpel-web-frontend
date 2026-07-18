@@ -16,7 +16,7 @@ export default function DonatePage() {
       <PageHeader
         title="Donate"
         description="Every dollar stays local, funding homes, programs, and opportunities for people with developmental disabilities."
-        image="/images/donate.svg"
+        image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1920&q=80"
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-surface to-primary-light">
         <div className="blob w-96 h-96 bg-accent/40 bottom-0 -left-20" aria-hidden="true" />

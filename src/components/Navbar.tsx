@@ -9,6 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<number | null>(null);
   const [mobileSection, setMobileSection] = useState<number | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -33,11 +34,17 @@ export default function Navbar() {
         setOpenMenu(null);
       }
     }
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
     document.addEventListener("keydown", onKey);
     document.addEventListener("click", onClick);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -48,7 +55,12 @@ export default function Navbar() {
   }
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 glass-strong border-b-0">
+    <header
+      ref={headerRef}
+      className={`sticky top-0 z-50 border-b-0 transition-colors duration-200 ${
+        scrolled ? "bg-white shadow-lg" : "glass-strong"
+      }`}
+    >
       <nav
         aria-label="Main navigation"
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20"

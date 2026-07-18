@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageHeader
         title="Contact"
         description="Questions about services, volunteering, or partnership? We'd love to hear from you."
-        image="/images/contact.svg"
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
       />
       <ContactSection />
     </>

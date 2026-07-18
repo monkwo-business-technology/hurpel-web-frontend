@@ -68,7 +68,7 @@ export default function ServicesPage() {
       <PageHeader
         title="Services"
         description="Person-centered supports built around each individual, their family, and their goals."
-        image="/images/community.svg"
+        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="bg-surface">

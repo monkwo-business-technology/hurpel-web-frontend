@@ -47,7 +47,7 @@ export default function EventsPage() {
       <PageHeader
         title="Upcoming Events"
         description="Show up, get moving, and stand with your neighbours."
-        image="/images/events.svg"
+        image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="bg-surface">

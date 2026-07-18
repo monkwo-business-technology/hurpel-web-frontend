@@ -23,7 +23,7 @@ export default function GetInvolvedPage() {
       <PageHeader
         title="Get Involved"
         description="Join 200+ active volunteers and 250 member families making inclusion real."
-        image="/images/volunteer.svg"
+        image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section id="volunteer" className="bg-surface scroll-mt-24">
