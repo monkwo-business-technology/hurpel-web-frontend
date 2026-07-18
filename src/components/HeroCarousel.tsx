@@ -138,7 +138,7 @@ export default function HeroCarousel() {
                 </Link>
                 <Link
                   href={slide.secondary.href}
-                  className="px-8 py-4 rounded-2xl font-semibold text-white border-2 border-white/70 hover:bg-white hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className="px-8 py-4 rounded-2xl font-semibold text-white border-2 border-white/70 hover:bg-white hover:text-primary-dark transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {slide.secondary.label}
                 </Link>
@@ -152,7 +152,7 @@ export default function HeroCarousel() {
           {chips.map((c) => (
             <p
               key={c.label}
-              className="glass rounded-2xl px-5 py-3 text-sm font-semibold text-primary-dark"
+              className="glass rounded-2xl px-5 py-3 text-sm font-semibold text-ink"
             >
               <span className="text-lg font-extrabold text-primary">{c.value}</span>{" "}
               {c.label}
@@ -166,7 +166,7 @@ export default function HeroCarousel() {
             type="button"
             onClick={prev}
             aria-label="Previous slide"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white hover:text-primary-dark transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -193,7 +193,7 @@ export default function HeroCarousel() {
             type="button"
             onClick={next}
             aria-label="Next slide"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white hover:text-primary-dark transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

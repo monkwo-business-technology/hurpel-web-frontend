@@ -9,7 +9,7 @@ const partners = [
 
 export default function TrustStrip() {
   return (
-    <section aria-label="Accreditation and partners" className="bg-white border-y border-primary/5">
+    <section aria-label="Accreditation and partners" className="bg-surface-alt border-y border-primary/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         <Reveal className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
           <p className="inline-flex items-center gap-2.5 shrink-0 px-5 py-2.5 rounded-full bg-primary-light text-primary font-bold text-sm">

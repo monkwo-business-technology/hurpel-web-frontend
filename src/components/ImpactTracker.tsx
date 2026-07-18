@@ -30,7 +30,7 @@ const stats = [
 
 export default function ImpactTracker() {
   return (
-    <section aria-labelledby="impact-heading" className="bg-primary text-white">
+    <section aria-labelledby="impact-heading" className="bg-primary-solid text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 id="impact-heading" className="sr-only">
           Our Impact

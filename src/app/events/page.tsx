@@ -72,7 +72,7 @@ export default function EventsPage() {
                   <p className="mt-4 text-ink-muted text-lg">{e.description}</p>
                   <Link
                     href={e.cta.href}
-                    className="mt-8 inline-block px-6 py-3.5 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="mt-8 inline-block px-6 py-3.5 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     {e.cta.label}
                   </Link>

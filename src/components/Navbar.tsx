@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { navSections } from "@/lib/nav";
 import { site } from "@/lib/site";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -59,7 +60,7 @@ export default function Navbar() {
     <header
       ref={headerRef}
       className={`sticky top-0 z-50 border-b-0 transition-colors duration-200 ${
-        scrolled ? "bg-white shadow-lg" : "glass-strong"
+        scrolled ? "bg-surface-alt shadow-lg" : "glass-strong"
       }`}
     >
       {/* Contact strip */}
@@ -133,8 +134,8 @@ export default function Navbar() {
                 onClick={() => setOpenMenu(openMenu === i ? null : i)}
                 className={`inline-flex items-center gap-1.5 px-4 py-3 rounded-xl font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                   openMenu === i
-                    ? "text-primary bg-white/70"
-                    : "text-ink-muted hover:text-primary hover:bg-white/50"
+                    ? "text-primary bg-primary/10"
+                    : "text-ink-muted hover:text-primary hover:bg-primary/10"
                 }`}
               >
                 {section.label}
@@ -154,25 +155,28 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/contact"
             onClick={closeAll}
-            className="px-5 py-3 rounded-2xl font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-white/60 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-5 py-3 rounded-2xl font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Inquire / Contact
           </Link>
           <Link
             href="/donate"
             onClick={closeAll}
-            className="px-5 py-3 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="px-5 py-3 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Donate Now
           </Link>
         </div>
 
+        <div className="lg:hidden flex items-center gap-1">
+        <ThemeToggle />
         <button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-xl text-primary hover:bg-white/60 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-primary hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -193,6 +197,7 @@ export default function Navbar() {
             )}
           </svg>
         </button>
+        </div>
       </nav>
 
       {/* Desktop mega menu panel */}
@@ -229,7 +234,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={closeAll}
-                      className="group block rounded-2xl overflow-hidden bg-white/70 border border-white/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      className="group block rounded-2xl overflow-hidden bg-surface-alt/80 border border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
                       <div className="relative h-28 overflow-hidden">
                         <Image
@@ -261,7 +266,7 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         className={`lg:hidden overflow-y-auto transition-[max-height] duration-300 ease-out ${
-          mobileOpen ? "max-h-[80vh] border-t border-white/60" : "max-h-0"
+          mobileOpen ? "max-h-[80vh] border-t border-primary/10" : "max-h-0"
         }`}
       >
         <ul className="px-4 py-4 space-y-1">
@@ -271,7 +276,7 @@ export default function Navbar() {
                 type="button"
                 aria-expanded={mobileSection === i}
                 onClick={() => setMobileSection(mobileSection === i ? null : i)}
-                className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium text-ink hover:bg-white/60 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium text-ink hover:bg-primary/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 {section.label}
                 <svg
@@ -292,7 +297,7 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         onClick={closeAll}
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-ink-muted hover:bg-white/60 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-ink-muted hover:bg-primary/10 hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                       >
                         <Image
                           src={item.image}
@@ -328,11 +333,17 @@ export default function Navbar() {
             </Link>
             <Link
               href="/donate"
-              className="block text-center px-4 py-4 rounded-2xl font-bold text-ink bg-accent"
+              className="block text-center px-4 py-4 rounded-2xl font-bold text-primary-dark bg-accent"
               onClick={closeAll}
             >
               Donate Now
             </Link>
+            <a
+              href={site.phoneHref}
+              className="block text-center px-4 py-3 text-sm font-semibold text-ink-muted"
+            >
+              Call us: {site.phone}
+            </a>
           </li>
         </ul>
       </div>

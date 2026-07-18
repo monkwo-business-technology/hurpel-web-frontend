@@ -29,7 +29,7 @@ export default function DonatePage() {
         </div>
       </section>
 
-      <section aria-labelledby="donate-faq-heading" className="bg-white">
+      <section aria-labelledby="donate-faq-heading" className="bg-surface-alt">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
           <Reveal className="text-center">
             <h2 id="donate-faq-heading" className="text-3xl font-extrabold text-primary">

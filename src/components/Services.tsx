@@ -73,7 +73,7 @@ export default function Services() {
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-3 left-3 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-white text-primary shadow-md">
+                  <div className="absolute bottom-3 left-3 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-white text-primary-solid shadow-md">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d={s.icon} />
                     </svg>

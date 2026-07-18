@@ -29,7 +29,7 @@ export default function DonateBand() {
             </p>
             <Link
               href="/donate"
-              className="mt-8 inline-block px-10 py-4 rounded-2xl font-bold text-white bg-primary hover:bg-primary-dark transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-primary/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+              className="mt-8 inline-block px-10 py-4 rounded-2xl font-bold text-white bg-primary-solid hover:bg-primary-solid-hover transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-primary-solid/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
             >
               Donate Now
             </Link>
@@ -37,8 +37,8 @@ export default function DonateBand() {
           <ul className="grid grid-cols-2 gap-4">
             {amounts.map((a) => (
               <li key={a.value} className="bg-white/85 rounded-2xl p-5 shadow-md">
-                <p className="text-2xl font-extrabold text-primary">{a.value}</p>
-                <p className="mt-1 text-sm text-ink-muted leading-snug">provides {a.impact}</p>
+                <p className="text-2xl font-extrabold text-primary-dark">{a.value}</p>
+                <p className="mt-1 text-sm text-slate-600 leading-snug">provides {a.impact}</p>
               </li>
             ))}
           </ul>

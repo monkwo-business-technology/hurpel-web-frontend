@@ -101,7 +101,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className="mt-8 inline-block px-6 py-3.5 rounded-2xl font-bold text-white bg-primary hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="mt-8 inline-block px-6 py-3.5 rounded-2xl font-bold text-white bg-primary-solid hover:bg-primary-solid-hover transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   >
                     Access This Support
                   </Link>
@@ -112,7 +112,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section aria-labelledby="services-faq-heading" className="bg-white">
+      <section aria-labelledby="services-faq-heading" className="bg-surface-alt">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
           <Reveal className="text-center">
             <h2 id="services-faq-heading" className="text-3xl font-extrabold text-primary">

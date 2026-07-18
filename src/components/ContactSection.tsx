@@ -7,7 +7,7 @@ export default function ContactSection() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative overflow-hidden bg-white scroll-mt-24"
+      className="relative overflow-hidden bg-surface-alt scroll-mt-24"
     >
       <div className="blob w-80 h-80 bg-primary/30 top-10 -right-20" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-2 lg:items-start">

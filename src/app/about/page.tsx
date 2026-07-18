@@ -67,7 +67,7 @@ export default function AboutPage() {
         <ImpactTracker />
       </div>
 
-      <section id="accountability" className="bg-white scroll-mt-24">
+      <section id="accountability" className="bg-surface-alt scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <h2 className="text-3xl font-extrabold text-primary">
@@ -80,7 +80,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/get-involved"
-              className="mt-8 inline-block px-8 py-4 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="mt-8 inline-block px-8 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               Get Involved
             </Link>

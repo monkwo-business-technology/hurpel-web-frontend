@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Brand palette — README design system + warm editorial cream */
   --color-primary: #0f4c81;
@@ -8,9 +10,13 @@
   --color-accent: #ffb81c;
   --color-accent-dark: #d99500;
   --color-surface: #fdf9f2;
+  --color-surface-alt: #ffffff;
   --color-cream: #faf3e7;
   --color-ink: #1e293b;
   --color-ink-muted: #475569;
+  /* Solid fill role: stays dark navy in both themes so white button/band text keeps contrast */
+  --color-primary-solid: #0f4c81;
+  --color-primary-solid-hover: #0a3a64;
 
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-baloo), var(--font-nunito), ui-sans-serif, sans-serif;
@@ -35,7 +41,27 @@ html {
   /* Global scale-down: all rem-based sizing (Tailwind spacing, text) shrinks with this */
   font-size: 87.5%;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6.5rem;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 9rem;
+  }
+}
+
+/* Dark theme: flip semantic tokens; utilities like bg-surface / text-ink invert automatically */
+.dark {
+  --color-surface: #0b1220;
+  --color-surface-alt: #131f35;
+  --color-cream: #0f1a2f;
+  --color-primary: #7ab3e0;
+  --color-primary-light: #16263d;
+  --color-primary-solid: #1a5c94;
+  --color-primary-solid-hover: #2470b3;
+  --color-ink: #e2e8f0;
+  --color-ink-muted: #9fb0c4;
+  color-scheme: dark;
 }
 
 body {
@@ -44,6 +70,7 @@ body {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
+  overflow-x: clip;
 }
 
 h1,
@@ -56,9 +83,14 @@ h4,
 
 /* Soft-UI editorial cards */
 .card-soft {
-  background: #fff;
+  background: var(--color-surface-alt);
   border: 1px solid rgba(15, 76, 129, 0.06);
   box-shadow: var(--shadow-soft);
+}
+
+.dark .card-soft {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .card-soft-hover {
@@ -87,6 +119,18 @@ h4,
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 12px 40px rgba(15, 76, 129, 0.14);
+}
+
+.dark .glass {
+  background: rgba(19, 31, 53, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.dark .glass-strong {
+  background: rgba(11, 18, 32, 0.82);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .glass-dark {
@@ -135,7 +179,7 @@ h4,
     transform 0.15s ease-out,
     font-size 0.15s ease-out,
     color 0.15s ease-out;
-  background: #fff;
+  background: var(--color-surface-alt);
   padding: 0 0.25rem;
 }
 

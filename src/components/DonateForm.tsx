@@ -65,7 +65,7 @@ export default function DonateForm() {
     return (
       <div
         role="status"
-        className="bg-white rounded-2xl shadow-xl p-10 text-center max-w-xl mx-auto"
+        className="bg-surface-alt rounded-2xl shadow-xl p-10 text-center max-w-xl mx-auto"
       >
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
           <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
@@ -84,7 +84,7 @@ export default function DonateForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl shadow-xl p-6 sm:p-10 max-w-xl mx-auto"
+      className="bg-surface-alt rounded-2xl shadow-xl p-6 sm:p-10 max-w-xl mx-auto"
       aria-labelledby="donate-form-heading"
     >
       <h3 id="donate-form-heading" className="sr-only">
@@ -103,7 +103,7 @@ export default function DonateForm() {
               onClick={() => setFrequency(f)}
               className={`px-4 py-3 rounded-xl font-semibold transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 frequency === f
-                  ? "bg-primary text-white shadow"
+                  ? "bg-primary-solid text-white shadow"
                   : "text-ink-muted hover:text-primary"
               }`}
             >
@@ -131,7 +131,7 @@ export default function DonateForm() {
               className={`px-3 py-3 rounded-2xl font-bold transition-all duration-200 cursor-pointer border-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 amount === a.value
                   ? "border-accent bg-accent/10 text-primary"
-                  : "border-slate-200 text-ink-muted hover:border-primary/40"
+                  : "border-slate-200 dark:border-slate-600 text-ink-muted hover:border-primary/40"
               }`}
             >
               ${a.value}
@@ -154,8 +154,8 @@ export default function DonateForm() {
               setAmount("custom");
               setCustomAmount(e.target.value);
             }}
-            className={`w-full px-4 py-3 rounded-2xl border-2 transition-colors focus:outline-none focus:border-primary ${
-              amount === "custom" ? "border-accent" : "border-slate-200"
+            className={`w-full px-4 py-3 rounded-2xl border-2 bg-surface-alt transition-colors focus:outline-none focus:border-primary ${
+              amount === "custom" ? "border-accent" : "border-slate-200 dark:border-slate-600"
             }`}
           />
         </div>
@@ -174,7 +174,7 @@ export default function DonateForm() {
             required
             autoComplete="name"
             placeholder=" "
-            className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
           />
           <label htmlFor="donor-name">Full Name</label>
         </div>
@@ -186,7 +186,7 @@ export default function DonateForm() {
             required
             autoComplete="email"
             placeholder=" "
-            className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
           />
           <label htmlFor="donor-email">Email Address</label>
         </div>
@@ -202,7 +202,7 @@ export default function DonateForm() {
             type="checkbox"
             checked={dedicate}
             onChange={(e) => setDedicate(e.target.checked)}
-            className="mt-1 w-5 h-5 rounded accent-[#0f4c81]"
+            className="mt-1 w-5 h-5 rounded accent-primary-solid"
           />
           <span className="text-sm text-ink-muted">
             Dedicate this gift (in honor / in memory of someone)
@@ -216,7 +216,7 @@ export default function DonateForm() {
               name="dedication"
               type="text"
               placeholder=" "
-              className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors"
+              className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
             />
             <label htmlFor="dedication">In honor / memory of…</label>
           </div>
@@ -224,7 +224,7 @@ export default function DonateForm() {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="mt-4 text-sm font-medium text-red-700 bg-red-50 rounded-xl px-4 py-3">
+        <p role="alert" className="mt-4 text-sm font-medium text-red-700 bg-red-50 dark:text-red-300 dark:bg-red-950/40 rounded-xl px-4 py-3">
           {error}
         </p>
       )}
@@ -232,7 +232,7 @@ export default function DonateForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 w-full px-6 py-4 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="mt-6 w-full px-6 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         {status === "sending" ? "Sending…" : "Complete Safe Donation 🔒"}
       </button>

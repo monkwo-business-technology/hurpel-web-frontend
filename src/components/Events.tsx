@@ -41,7 +41,7 @@ export default function Events() {
     <section
       id="events"
       aria-labelledby="events-heading"
-      className="bg-white scroll-mt-24"
+      className="bg-surface-alt scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -72,8 +72,8 @@ export default function Events() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute top-4 right-4 rounded-xl bg-white shadow-md px-3.5 py-2 text-center">
-                    <p className="text-lg font-extrabold text-primary leading-none">{e.date.day}</p>
-                    <p className="text-[11px] font-bold text-ink-muted uppercase tracking-wide mt-1">
+                    <p className="text-lg font-extrabold text-primary-dark leading-none">{e.date.day}</p>
+                    <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wide mt-1">
                       {e.date.month}
                     </p>
                   </div>

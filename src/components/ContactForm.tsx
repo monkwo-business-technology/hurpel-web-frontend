@@ -48,7 +48,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="bg-white rounded-2xl shadow-lg p-10 text-center">
+      <div role="status" className="bg-surface-alt rounded-2xl shadow-lg p-10 text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
           <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -65,7 +65,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 space-y-6"
+      className="bg-surface-alt rounded-2xl shadow-lg p-6 sm:p-8 space-y-6"
       aria-labelledby="contact-form-heading"
     >
       <h3 id="contact-form-heading" className="sr-only">
@@ -80,7 +80,7 @@ export default function ContactForm() {
           required
           autoComplete="name"
           placeholder=" "
-          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
         />
         <label htmlFor="contact-name">Full Name</label>
       </div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
           required
           autoComplete="email"
           placeholder=" "
-          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors"
         />
         <label htmlFor="contact-email">Email Address</label>
       </div>
@@ -107,7 +107,7 @@ export default function ContactForm() {
           name="inquiry"
           required
           defaultValue=""
-          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 bg-white focus:outline-none focus:border-primary transition-colors cursor-pointer"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors cursor-pointer"
         >
           <option value="" disabled>
             Select a topic…
@@ -127,7 +127,7 @@ export default function ContactForm() {
           required
           rows={5}
           placeholder=" "
-          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-primary transition-colors resize-y"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-surface-alt focus:outline-none focus:border-primary transition-colors resize-y"
         />
         <label htmlFor="contact-message">How can our community help yours?</label>
       </div>
@@ -142,7 +142,7 @@ export default function ContactForm() {
         <input
           type="checkbox"
           name="newsletter"
-          className="mt-1 w-5 h-5 rounded accent-[#0f4c81]"
+          className="mt-1 w-5 h-5 rounded accent-primary-solid"
         />
         <span className="text-sm text-ink-muted">
           Sign up for our monthly Email Newsletter to see community impact.
@@ -150,7 +150,7 @@ export default function ContactForm() {
       </label>
 
       {status === "error" && (
-        <p role="alert" className="text-sm font-medium text-red-700 bg-red-50 rounded-xl px-4 py-3">
+        <p role="alert" className="text-sm font-medium text-red-700 bg-red-50 dark:text-red-300 dark:bg-red-950/40 rounded-xl px-4 py-3">
           {error}
         </p>
       )}
@@ -158,7 +158,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full px-6 py-4 rounded-2xl font-bold text-white bg-primary hover:bg-primary-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        className="w-full px-6 py-4 rounded-2xl font-bold text-white bg-primary-solid hover:bg-primary-solid-hover transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       >
         {status === "sending" ? "Sending…" : "Send Message"}
       </button>

@@ -13,7 +13,7 @@ export default function NewsletterBand() {
   }
 
   return (
-    <section aria-labelledby="newsletter-heading" className="bg-primary text-white">
+    <section aria-labelledby="newsletter-heading" className="bg-primary-solid text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
@@ -27,7 +27,7 @@ export default function NewsletterBand() {
           {done ? (
             <p
               role="status"
-              className="glass rounded-2xl px-6 py-5 text-primary-dark font-semibold lg:justify-self-end"
+              className="glass rounded-2xl px-6 py-5 text-ink font-semibold lg:justify-self-end"
             >
               Thank you for joining! Watch your inbox for community stories.
             </p>
@@ -43,11 +43,11 @@ export default function NewsletterBand() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="flex-1 px-5 py-4 rounded-2xl text-ink bg-white placeholder:text-ink-muted/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="flex-1 px-5 py-4 rounded-2xl text-ink bg-surface-alt placeholder:text-ink-muted/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               />
               <button
                 type="submit"
-                className="px-7 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="px-7 py-4 rounded-2xl font-bold text-[#0a3a64] bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Sign Up
               </button>

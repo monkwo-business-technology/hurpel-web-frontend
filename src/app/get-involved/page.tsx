@@ -46,7 +46,7 @@ export default function GetInvolvedPage() {
             </ul>
             <Link
               href="/contact"
-              className="mt-8 inline-block px-8 py-4 rounded-2xl font-bold text-white bg-primary hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="mt-8 inline-block px-8 py-4 rounded-2xl font-bold text-white bg-primary-solid hover:bg-primary-solid-hover transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
               Apply to Volunteer
             </Link>
@@ -59,7 +59,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-surface-alt">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-6 md:grid-cols-2">
           <Reveal>
             <article className="glass rounded-2xl p-10 h-full text-center hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
@@ -70,7 +70,7 @@ export default function GetInvolvedPage() {
               </p>
               <Link
                 href="/donate"
-                className="mt-6 inline-block px-8 py-4 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="mt-6 inline-block px-8 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Donate Now
               </Link>
@@ -85,7 +85,7 @@ export default function GetInvolvedPage() {
               </p>
               <Link
                 href="/contact"
-                className="mt-6 inline-block px-8 py-4 rounded-2xl font-semibold text-primary border-2 border-primary hover:bg-primary hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="mt-6 inline-block px-8 py-4 rounded-2xl font-semibold text-primary border-2 border-primary hover:bg-primary-solid hover:border-primary-solid hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Contact Us
               </Link>
