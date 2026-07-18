@@ -180,13 +180,6 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
 
         <div className="hidden lg:flex items-center gap-2 shrink-0">
           <Link
-            href={`/${lang}/contact`}
-            onClick={closeAll}
-            className="px-4 py-2.5 rounded-2xl text-sm xl:text-base whitespace-nowrap font-semibold text-primary border-2 border-primary/60 hover:border-primary hover:bg-primary/10 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-          >
-            {dict.nav.inquireContact}
-          </Link>
-          <Link
             href={`/${lang}/donate-now`}
             onClick={closeAll}
             className="px-4 py-2.5 rounded-2xl text-sm xl:text-base whitespace-nowrap font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 animate-pulse-ring focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
@@ -365,13 +358,6 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
             </li>
           ))}
           <li className="pt-2 flex flex-col gap-2">
-            <Link
-              href={`/${lang}/contact`}
-              className="block text-center px-4 py-4 rounded-2xl font-semibold text-primary border-2 border-primary"
-              onClick={closeAll}
-            >
-              {dict.nav.inquireContact}
-            </Link>
             <Link
               href={`/${lang}/donate-now`}
               className="block text-center px-4 py-4 rounded-2xl font-bold text-primary-dark bg-accent"
