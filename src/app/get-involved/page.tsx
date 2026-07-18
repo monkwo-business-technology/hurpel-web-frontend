@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: `Get Involved — ${site.name}`,
@@ -23,7 +24,7 @@ export default function GetInvolvedPage() {
       <PageHeader
         title="Get Involved"
         description="Join 200+ active volunteers and 250 member families making inclusion real."
-        image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1920&q=80"
+        image={images.banner.getInvolved}
       />
 
       <section id="volunteer" className="bg-surface scroll-mt-24">
@@ -52,7 +53,7 @@ export default function GetInvolvedPage() {
           </Reveal>
           <Reveal delay={150}>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/volunteer.svg" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={images.involve.volunteer} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
         </div>

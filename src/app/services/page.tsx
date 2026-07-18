@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import FaqAccordion from "@/components/FaqAccordion";
 import { site } from "@/lib/site";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: `Services — ${site.name}`,
@@ -15,7 +17,7 @@ const services = [
   {
     id: "employment",
     title: "Employment Services",
-    image: "/images/employment.svg",
+    image: images.service.employment,
     description:
       "Custom employment planning and placement that matches individual strengths with meaningful work in the community.",
     points: [
@@ -27,7 +29,7 @@ const services = [
   {
     id: "accommodation",
     title: "Accommodation & Respite Services",
-    image: "/images/housing.svg",
+    image: images.service.housing,
     description:
       "Safe, welcoming group homes and short-term respite stays that give families support when they need it most.",
     points: [
@@ -39,7 +41,7 @@ const services = [
   {
     id: "youth",
     title: "Child & Youth Services",
-    image: "/images/youth.svg",
+    image: images.service.youth,
     description:
       "Family-centered workshops and programs that help children and youth grow, learn, and belong.",
     points: [
@@ -51,7 +53,7 @@ const services = [
   {
     id: "community",
     title: "Community Access Services",
-    image: "/images/community.svg",
+    image: images.service.community,
     description:
       "Day programs, social and recreational activities that open doors to friendship and full community participation.",
     points: [
@@ -68,7 +70,7 @@ export default function ServicesPage() {
       <PageHeader
         title="Services"
         description="Person-centered supports built around each individual, their family, and their goals."
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80"
+        image={images.banner.services}
       />
 
       <section className="bg-surface">
@@ -107,6 +109,46 @@ export default function ServicesPage() {
               </article>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="services-faq-heading" className="bg-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+          <Reveal className="text-center">
+            <h2 id="services-faq-heading" className="text-3xl font-extrabold text-primary">
+              Common Questions
+            </h2>
+            <p className="mt-4 text-ink-muted">
+              Not sure where to start? These answers help — and we&apos;re a phone call away at{" "}
+              {site.phone}.
+            </p>
+          </Reveal>
+          <Reveal className="mt-10">
+            <FaqAccordion
+              faqs={[
+                {
+                  question: "How do we access services for the first time?",
+                  answer:
+                    "Start with our contact form or call us. An intake coordinator will meet with you and your family to understand goals, explain funding options, and build a person-centered plan — no referral required.",
+                },
+                {
+                  question: "Is there a waitlist for group homes or respite?",
+                  answer:
+                    "Demand for supported housing is high across Ontario. We are transparent about wait times during intake, and our #WaitingToBelong campaign is actively funding new spaces.",
+                },
+                {
+                  question: "What does support cost families?",
+                  answer:
+                    "Most services are funded through provincial programs such as Passport and DSO referrals. We help every family navigate funding — cost should never be the reason someone goes without support.",
+                },
+                {
+                  question: "Can services be tailored to my family member's needs?",
+                  answer:
+                    "Yes — everything starts with a person-centered plan built around the individual, their family, and their goals. Supports flex as needs change.",
+                },
+              ]}
+            />
+          </Reveal>
         </div>
       </section>
     </>

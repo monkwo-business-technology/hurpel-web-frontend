@@ -4,7 +4,9 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import ImpactTracker from "@/components/ImpactTracker";
 import Reveal from "@/components/Reveal";
+import StoryCarousel from "@/components/StoryCarousel";
 import { site } from "@/lib/site";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: `Who We Are — ${site.name}`,
@@ -36,7 +38,7 @@ export default function AboutPage() {
       <PageHeader
         title="Who We Are"
         description="A community organization providing quality supports for people with developmental disabilities to live fulfilled lives."
-        image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1920&q=80"
+        image={images.banner.about}
       />
 
       <section id="mission" className="bg-surface scroll-mt-24">
@@ -85,11 +87,13 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={150}>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/volunteer.svg" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={images.involve.partner} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
         </div>
       </section>
+
+      <StoryCarousel />
     </>
   );
 }

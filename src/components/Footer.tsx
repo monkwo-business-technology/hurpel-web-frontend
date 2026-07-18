@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import NewsletterBand from "@/components/NewsletterBand";
 import { site } from "@/lib/site";
 
 const quickLinks = [
   { href: "/about", label: "Who We Are" },
-  { href: "/services", label: "Services" },
   { href: "/events", label: "Upcoming Events" },
   { href: "/get-involved", label: "Get Involved" },
   { href: "/donate", label: "Donate" },
   { href: "/contact", label: "Contact" },
+];
+
+const serviceLinks = [
+  { href: "/services#employment", label: "Employment Services" },
+  { href: "/services#accommodation", label: "Accommodation & Respite" },
+  { href: "/services#youth", label: "Child & Youth Services" },
+  { href: "/services#community", label: "Community Access" },
 ];
 
 const socials = [
@@ -32,8 +39,9 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-primary-dark text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-        <div>
+      <NewsletterBand />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
             <Image
               src="/logo.jpg"
@@ -44,8 +52,14 @@ export default function Footer() {
             />
             <p className="font-bold text-lg">{site.name}</p>
           </div>
-          <p className="mt-4 text-slate-300 text-sm leading-relaxed">
-            Registered Charity Number: {site.charityNumber}
+          <p className="mt-4 text-slate-300 text-sm leading-relaxed max-w-sm">
+            {site.description}
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 text-slate-300 text-sm">
+            <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+            </svg>
+            Registered Charity {site.charityNumber} · FOCUS Accredited
           </p>
         </div>
 
@@ -53,6 +67,22 @@ export default function Footer() {
           <h2 className="font-semibold text-lg mb-4">Explore</h2>
           <ul className="space-y-2 text-slate-300 text-sm">
             {quickLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="hover:text-accent transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-lg mb-4">Services</h2>
+          <ul className="space-y-2 text-slate-300 text-sm">
+            {serviceLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
@@ -86,17 +116,13 @@ export default function Footer() {
             </li>
             <li>{site.address}</li>
           </ul>
-        </div>
-
-        <div>
-          <h2 className="font-semibold text-lg mb-4">Follow Us</h2>
-          <ul className="flex gap-4">
+          <ul className="mt-6 flex gap-3">
             {socials.map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
                   aria-label={s.label}
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 hover:bg-accent hover:text-ink transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 hover:bg-accent hover:text-ink transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d={s.path} />

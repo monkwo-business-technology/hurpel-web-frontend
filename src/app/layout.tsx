@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Baloo_2 } from "next/font/google";
+import { Baloo_2, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +7,11 @@ import { site } from "@/lib/site";
 
 const baloo = Baloo_2({
   variable: "--font-baloo",
+  subsets: ["latin"],
+});
+
+const nunito = Nunito_Sans({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -28,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${baloo.variable} h-full antialiased`}>
+    <html lang="en" className={`${baloo.variable} ${nunito.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <a
           href="#main"

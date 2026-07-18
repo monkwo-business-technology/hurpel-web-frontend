@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: `Upcoming Events — ${site.name}`,
@@ -16,7 +17,7 @@ const events = [
     id: "waiting-to-belong",
     tag: "#WaitingToBelongCampaign",
     title: "Everyone Needs A Safe Place to Live.",
-    image: "/images/hero-belong.svg",
+    image: images.event.belong,
     description:
       "Too many people with developmental disabilities are still waiting for a safe, supported home. The #WaitingToBelong campaign funds new group home spaces and raises awareness with policymakers.",
     cta: { label: "Support the campaign", href: "/donate" },
@@ -25,7 +26,7 @@ const events = [
     id: "fun-run",
     tag: "Community in Motion",
     title: "The Serious(ly) Fun Run",
-    image: "/images/run.svg",
+    image: images.event.run,
     description:
       "Save the date: Saturday, September 26th, 2026. A fully accessible route through the heart of the community — walk, roll, or run. Team registration, family-friendly, and 100% of proceeds stay local.",
     cta: { label: "Volunteer for race day", href: "/get-involved#volunteer" },
@@ -34,7 +35,7 @@ const events = [
     id: "smile-cookie",
     tag: "Smile Cookie Week",
     title: "Partnership Drive",
-    image: "/images/cookie.svg",
+    image: images.event.cookie,
     description:
       "Every smile cookie sold at participating locations supports local programs. Grab a cookie, share a smile, change a life — and ask your workplace about matching partnerships.",
     cta: { label: "Become a partner", href: "/contact" },
@@ -47,7 +48,7 @@ export default function EventsPage() {
       <PageHeader
         title="Upcoming Events"
         description="Show up, get moving, and stand with your neighbours."
-        image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1920&q=80"
+        image={images.banner.events}
       />
 
       <section className="bg-surface">

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { images } from "@/lib/images";
 
 type Slide = {
   eyebrow: string;
@@ -21,8 +22,7 @@ const slides: Slide[] = [
     titleAccent: "Inclusive Community.",
     description:
       "We provide quality supports for people with developmental disabilities to live fulfilled lives, in collaboration with families and the community.",
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
+    image: images.hero.belong,
     primary: { label: "Donate Today", href: "/donate" },
     secondary: { label: "Explore Services", href: "/services" },
   },
@@ -32,8 +32,7 @@ const slides: Slide[] = [
     titleAccent: "Around You.",
     description:
       "Employment, accommodation and respite, child and youth programs, and community access — person-centered supports for every stage of life.",
-    image:
-      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1600&q=80",
+    image: images.hero.services,
     primary: { label: "View All Services", href: "/services" },
     secondary: { label: "Access Support", href: "/contact" },
   },
@@ -43,11 +42,16 @@ const slides: Slide[] = [
     titleAccent: "Fun Run 2026.",
     description:
       "Save the date: Saturday, September 26th, 2026. Walk, roll, or run — everyone belongs at the start line.",
-    image:
-      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1600&q=80",
+    image: images.hero.events,
     primary: { label: "See Upcoming Events", href: "/events" },
     secondary: { label: "Get Involved", href: "/get-involved" },
   },
+];
+
+const chips = [
+  { value: "1,000+", label: "people supported yearly" },
+  { value: "32", label: "safe group homes" },
+  { value: "200+", label: "active volunteers" },
 ];
 
 const AUTOPLAY_MS = 6000;
@@ -74,18 +78,36 @@ export default function HeroCarousel() {
     <section
       aria-roledescription="carousel"
       aria-label="Highlights"
-      className="relative overflow-hidden bg-gradient-to-b from-primary-light via-white to-surface"
+      className="relative overflow-hidden bg-primary-dark"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      {/* Ambient blobs */}
-      <div className="blob w-96 h-96 bg-primary/40 -top-20 -left-20" aria-hidden="true" />
-      <div className="blob w-80 h-80 bg-accent/50 top-40 right-0" aria-hidden="true" />
+      {/* Full-bleed photo backgrounds */}
+      {slides.map((slide, i) => (
+        <div
+          key={slide.eyebrow}
+          aria-hidden="true"
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            index === i ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={slide.image}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/85 via-primary-dark/55 to-primary-dark/15" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary-dark/80 to-transparent" />
+        </div>
+      ))}
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-        <div className="relative min-h-[520px] sm:min-h-[460px]">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32">
+        <div className="relative min-h-[420px] sm:min-h-[380px] max-w-2xl">
           {slides.map((slide, i) => (
             <div
               key={slide.eyebrow}
@@ -99,59 +121,52 @@ export default function HeroCarousel() {
                   : "opacity-0 absolute inset-0 pointer-events-none"
               }`}
             >
-              <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-                <div className="glass rounded-2xl p-8 sm:p-10">
-                  <p className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6">
-                    {slide.eyebrow}
-                  </p>
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary leading-tight tracking-tight">
-                    {slide.title}
-                    <span className="block text-ink">{slide.titleAccent}</span>
-                  </h1>
-                  <p className="mt-6 text-lg text-ink-muted max-w-xl">{slide.description}</p>
-                  <div className="mt-8 flex flex-wrap gap-4">
-                    <Link
-                      href={slide.primary.href}
-                      className="px-8 py-4 rounded-2xl font-bold text-ink bg-accent hover:bg-accent-dark transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                    >
-                      {slide.primary.label}
-                    </Link>
-                    <Link
-                      href={slide.secondary.href}
-                      className="px-8 py-4 rounded-2xl font-semibold text-primary border-2 border-primary hover:bg-primary hover:text-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                    >
-                      {slide.secondary.label}
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="relative hidden lg:block">
-                  <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-                    <Image
-                      src={slide.image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover"
-                      priority={i === 0}
-                    />
-                    <div className="absolute inset-x-6 bottom-6 glass rounded-2xl px-6 py-4">
-                      <p className="font-bold text-primary">{slide.eyebrow}</p>
-                    </div>
-                  </div>
-                </div>
+              <p className="inline-block px-4 py-1.5 rounded-full bg-accent text-primary-dark font-bold text-sm mb-6">
+                {slide.eyebrow}
+              </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                {slide.title}
+                <span className="block text-accent">{slide.titleAccent}</span>
+              </h1>
+              <p className="mt-6 text-lg text-white/90 max-w-xl">{slide.description}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href={slide.primary.href}
+                  className="px-8 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-dark"
+                >
+                  {slide.primary.label}
+                </Link>
+                <Link
+                  href={slide.secondary.href}
+                  className="px-8 py-4 rounded-2xl font-semibold text-white border-2 border-white/70 hover:bg-white hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  {slide.secondary.label}
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Floating stat chips */}
+        <div className="mt-12 flex flex-wrap gap-3">
+          {chips.map((c) => (
+            <p
+              key={c.label}
+              className="glass rounded-2xl px-5 py-3 text-sm font-semibold text-primary-dark"
+            >
+              <span className="text-lg font-extrabold text-primary">{c.value}</span>{" "}
+              {c.label}
+            </p>
+          ))}
+        </div>
+
         {/* Controls */}
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="mt-10 flex items-center gap-4">
           <button
             type="button"
             onClick={prev}
             aria-label="Previous slide"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -167,8 +182,8 @@ export default function HeroCarousel() {
                 aria-selected={index === i}
                 aria-label={`Go to slide ${i + 1}`}
                 onClick={() => setIndex(i)}
-                className={`h-3 rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                  index === i ? "w-8 bg-primary" : "w-3 bg-primary/30 hover:bg-primary/50"
+                className={`h-3 rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  index === i ? "w-8 bg-accent" : "w-3 bg-white/50 hover:bg-white/80"
                 }`}
               />
             ))}
@@ -178,7 +193,7 @@ export default function HeroCarousel() {
             type="button"
             onClick={next}
             aria-label="Next slide"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="inline-flex items-center justify-center w-12 h-12 rounded-full glass text-primary hover:bg-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
