@@ -269,7 +269,9 @@ const dict = {
     emailLabel: "Email address",
     placeholder: "you@example.com",
     signUp: "Sign Up",
+    signingUp: "Signing up…",
     thanks: "Thank you for joining! Watch your inbox for community stories.",
+    error: "We couldn't sign you up right now. Please try again later.",
   },
   footer: {
     explore: "Explore",

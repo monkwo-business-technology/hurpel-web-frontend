@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 import { sendEmail, escapeHtml } from "@/lib/email";
+import { en } from "@/i18n/dictionaries/en";
+import { fr } from "@/i18n/dictionaries/fr";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const INQUIRY_OPTIONS = [
-  "General Question",
-  "Accessing Support",
-  "Volunteering",
-  "Employment/Hiring",
-];
+// Accept submissions from both language versions of the form
+const INQUIRY_OPTIONS = [...en.contactForm.inquiryOptions, ...fr.contactForm.inquiryOptions];
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;

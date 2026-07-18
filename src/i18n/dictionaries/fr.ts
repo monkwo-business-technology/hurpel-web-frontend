@@ -277,7 +277,9 @@ export const fr: Dict = {
     emailLabel: "Adresse courriel",
     placeholder: "vous@exemple.com",
     signUp: "S'inscrire",
+    signingUp: "Inscription…",
     thanks: "Merci de vous être inscrit! Surveillez votre boîte de réception.",
+    error: "L'inscription a échoué pour le moment. Veuillez réessayer plus tard.",
   },
   footer: {
     explore: "Explorer",

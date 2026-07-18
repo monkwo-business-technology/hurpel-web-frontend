@@ -5,12 +5,23 @@ import type { Dictionary } from "@/i18n";
 
 export default function NewsletterBand({ dict }: { dict: Dictionary["newsletter"] }) {
   const [email, setEmail] = useState("");
-  const [done, setDone] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const done = status === "done";
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setDone(true);
+    if (!email || status === "sending") return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      setStatus(res.ok ? "done" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -46,13 +57,19 @@ export default function NewsletterBand({ dict }: { dict: Dictionary["newsletter"
               />
               <button
                 type="submit"
-                className="px-7 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                disabled={status === "sending"}
+                className="px-7 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-colors duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                {dict.signUp}
+                {status === "sending" ? dict.signingUp : dict.signUp}
               </button>
             </form>
           )}
         </div>
+        {status === "error" && (
+          <p role="alert" className="mt-4 text-sm font-medium text-red-200 lg:text-right">
+            {dict.error}
+          </p>
+        )}
       </div>
     </section>
   );
