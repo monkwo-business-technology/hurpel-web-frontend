@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Celebration from "@/components/Celebration";
+import { donationsComingSoon } from "@/lib/donate";
 import type { Dictionary } from "@/i18n";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -228,11 +229,17 @@ export default function DonateForm({ dict }: { dict: Dictionary["donateForm"] })
 
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="mt-6 w-full px-6 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-wait focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        disabled={donationsComingSoon || status === "sending"}
+        className="mt-6 w-full px-6 py-4 rounded-2xl font-bold text-primary-dark bg-accent hover:bg-accent-dark transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         {status === "sending" ? dict.sending : dict.submit}
       </button>
+
+      {donationsComingSoon && (
+        <p className="mt-3 text-sm text-center font-semibold text-amber-800 dark:text-amber-300">
+          {dict.comingSoonNote}
+        </p>
+      )}
 
       <p className="mt-4 text-xs text-center text-ink-muted">{dict.disclaimer}</p>
       <div className="mt-3 flex items-center justify-center gap-4 text-ink-muted" aria-label={dict.paymentPartners}>
