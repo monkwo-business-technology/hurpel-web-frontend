@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import TrustStrip from "@/components/TrustStrip";
+import LicensingNotice from "@/components/LicensingNotice";
 import ImpactTracker from "@/components/ImpactTracker";
 import Services from "@/components/Services";
-import StoryCarousel from "@/components/StoryCarousel";
 import Events from "@/components/Events";
 import DonateBand from "@/components/DonateBand";
 import HelpQuiz from "@/components/HelpQuiz";
@@ -33,9 +33,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     <>
       <HeroCarousel lang={lang as Lang} dict={dict.hero} />
       <TrustStrip dict={dict.trust} />
+      <LicensingNotice dict={dict.licensing} />
       <Services lang={lang as Lang} dict={dict.services} learnMore={dict.common.learnMore} />
       <ImpactTracker dict={dict.impact} />
-      <StoryCarousel dict={dict.stories} />
       <Events lang={lang as Lang} dict={dict.events} />
 
       {/* Get involved split */}
@@ -85,7 +85,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       <HelpQuiz lang={lang as Lang} dict={dict.quiz} />
 
-      <DonateBand lang={lang as Lang} dict={dict.donateBand} cta={dict.common.donateNow} />
+      <DonateBand
+        lang={lang as Lang}
+        dict={dict.donateBand}
+        optionsDict={dict.donateOptions}
+        cta={dict.common.donateNow}
+      />
     </>
   );
 }

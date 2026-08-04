@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import DonateForm from "@/components/DonateForm";
+import DonateOptions from "@/components/DonateOptions";
 import BackButton from "@/components/BackButton";
 import { site } from "@/lib/site";
 import { getDictionary, type Lang } from "@/i18n";
@@ -40,6 +41,14 @@ export default async function DonateNowPage({ params }: { params: Promise<{ lang
         </div>
 
         <div className="mt-8 pb-16">
+          <DonateOptions dict={dict.donateOptions} lang={lang as Lang} className="max-w-xl mx-auto" />
+          <div className="my-10 flex items-center gap-4 max-w-xl mx-auto" aria-hidden="true">
+            <span className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+            <span className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+              {t.orPledge}
+            </span>
+            <span className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+          </div>
           <DonateForm dict={dict.donateForm} />
         </div>
       </div>

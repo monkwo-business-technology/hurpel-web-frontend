@@ -11,7 +11,7 @@ export const fr: Dict = {
     contactUs: "Contactez-nous",
     back: "Retour",
     charityLine: "Organisme de bienfaisance enregistré",
-    focusLine: "Fièrement agréé FOCUS",
+    focusLine: "Fondé à London, en Ontario",
     switchToDark: "Passer au thème sombre",
     switchToLight: "Passer au thème clair",
     callUs: "Appelez-nous",
@@ -19,6 +19,7 @@ export const fr: Dict = {
   nav: {
     inquireContact: "Renseignements / Contact",
     viewAll: "Voir tout",
+    comingSoon: "Bientôt",
     sections: {
       home: { label: "Accueil" },
       community: { label: "Communauté" },
@@ -32,11 +33,11 @@ export const fr: Dict = {
           },
           impact: {
             label: "Notre impact",
-            description: "Plus de 1 000 personnes soutenues chaque année dans 32 foyers.",
+            description: "Ce que nous bâtissons et ce que nous rendrons public.",
           },
           accountability: {
             label: "Agrément et responsabilité",
-            description: "Fièrement agréé FOCUS — découvrez notre transparence.",
+            description: "Comment un nouvel organisme reste transparent dès le premier jour.",
           },
         },
       },
@@ -45,23 +46,19 @@ export const fr: Dict = {
         description: "Des personnes ayant des besoins médicaux et complexes, vivant bien dans la communauté.",
       },
       services: {
-        label: "Services",
+        label: "Notre vision par étapes",
         items: {
-          employment: {
-            label: "Services d'emploi",
-            description: "Planification personnalisée et placement vers un travail valorisant.",
-          },
-          accommodation: {
-            label: "Hébergement et répit",
-            description: "Foyers de groupe sécuritaires et séjours de répit de courte durée.",
-          },
           youth: {
-            label: "Services à l'enfance et à la jeunesse",
-            description: "Ateliers centrés sur la famille pour les esprits en croissance.",
+            label: "Étape 1 — Services résidentiels jeunesse",
+            description: "Notre priorité immédiate, en cours d'autorisation auprès du MCCSS.",
           },
-          community: {
-            label: "Accès communautaire",
-            description: "Programmes de jour, activités sociales et récréatives.",
+          adult: {
+            label: "Étape 2 — Logement avec soutien pour adultes",
+            description: "Une étape future distincte, après l'autorisation du programme jeunesse.",
+          },
+          licensing: {
+            label: "Avis d'autorisation",
+            description: "Où nous en sommes, et ce que nous ne pouvons pas faire d'ici là.",
           },
         },
       },
@@ -69,16 +66,16 @@ export const fr: Dict = {
         label: "Événements à venir",
         items: {
           belong: {
-            label: "Campagne #WaitingToBelong",
-            description: "Tout le monde mérite un chez-soi sécuritaire.",
+            label: "Chacun mérite une place",
+            description: "Une campagne de sensibilisation en préparation. Pas encore programmée.",
           },
           run: {
-            label: "La course Serious(ly) Fun",
-            description: "Samedi 26 septembre 2026 — marchez, roulez ou courez.",
+            label: "Une course communautaire",
+            description: "Une marche ou course accessible que nous espérons organiser. Pas de date.",
           },
           cookie: {
-            label: "Semaine du biscuit sourire",
-            description: "Chaque biscuit vendu soutient les programmes locaux.",
+            label: "Semaine des commerces locaux",
+            description: "Une collecte avec les commerces du quartier. Aucun partenaire confirmé.",
           },
         },
       },
@@ -88,7 +85,7 @@ export const fr: Dict = {
         items: {
           volunteer: {
             label: "Devenir bénévole",
-            description: "Rejoignez plus de 200 bénévoles actifs qui rendent l'inclusion réelle.",
+            description: "Manifestez votre intérêt — le recrutement s'ouvrira après l'autorisation.",
           },
           donate: {
             label: "Faire un don",
@@ -116,7 +113,7 @@ export const fr: Dict = {
         title: "Des personnes valorisées.",
         titleAccent: "Une communauté inclusive.",
         description:
-          "Nous offrons des soutiens de qualité aux personnes ayant une déficience développementale afin qu'elles vivent une vie épanouie, en collaboration avec les familles et la communauté.",
+          "Hurpel Support Services se bâtit pour soutenir les personnes ayant une déficience développementale afin qu'elles vivent une vie épanouie, en collaboration avec les familles et la communauté. Notre programme résidentiel jeunesse est en cours d'autorisation auprès du MCCSS.",
         primary: "Donnez aujourd'hui",
         secondary: "Découvrir nos services",
       },
@@ -125,24 +122,24 @@ export const fr: Dict = {
         title: "Un soutien bâti",
         titleAccent: "autour de vous.",
         description:
-          "Emploi, hébergement et répit, programmes jeunesse et accès communautaire — des soutiens centrés sur la personne à chaque étape de la vie.",
+          "Soutien à l'emploi, programmes jeunesse et accès communautaire — des soutiens centrés sur la personne à chaque étape de la vie.",
         primary: "Voir tous les services",
-        secondary: "Obtenir du soutien",
+        secondary: "Contactez-nous",
       },
       events: {
-        eyebrow: "Communauté en mouvement",
-        title: "La course",
-        titleAccent: "Serious(ly) Fun 2026.",
+        eyebrow: "En préparation",
+        title: "Nos premiers événements",
+        titleAccent: "sont en préparation.",
         description:
-          "À vos agendas : samedi 26 septembre 2026. Marchez, roulez ou courez — tout le monde a sa place sur la ligne de départ.",
-        primary: "Voir les événements",
+          "Rien n'est encore au calendrier — nous sommes un nouvel organisme. Découvrez ce que nous espérons offrir et dites-nous ce qui vous intéresse.",
+        primary: "Voir nos projets",
         secondary: "Participez",
       },
     },
     chips: {
-      people: { value: "1 000+", label: "personnes soutenues par année" },
-      homes: { value: "32", label: "foyers de groupe sécuritaires" },
-      volunteers: { value: "200+", label: "bénévoles actifs" },
+      charity: { value: "Nouvel", label: "organisme de bienfaisance enregistré" },
+      local: { value: "London", label: "Ontario — notre point d'ancrage" },
+      open: { value: "Ouvert", label: "aux familles, bénévoles et partenaires" },
     },
     prevSlide: "Diapositive précédente",
     nextSlide: "Diapositive suivante",
@@ -150,55 +147,75 @@ export const fr: Dict = {
     goToSlide: "Aller à la diapositive",
     highlights: "En vedette",
   },
+  licensing: {
+    bannerLabel: "Avis pré-autorisation :",
+    bannerBody:
+      "Aucune opération de soins, aucun placement résidentiel et aucun traitement d'admission n'auront lieu avant l'octroi officiel du permis du MSESC.",
+    bannerLink: "Lire l'avis complet",
+    noticeBadge: "Avis important",
+    noticeHeading: "Notre statut d'autorisation",
+    cleared:
+      "Hurpel Support Services a reçu toutes les autorisations locales de London en matière de zonage, d'incendie et de santé.",
+    pending: "Nous travaillons actuellement à l'obtention de notre permis du MSESC (MCCSS).",
+    noOperations:
+      "Aucune opération de soins, aucun placement résidentiel et aucun traitement d'admission n'auront lieu avant l'octroi officiel du permis provincial.",
+  },
   trust: {
-    ariaLabel: "Agrément et partenaires",
-    badge: "Agréé FOCUS — responsabilité maximale",
+    ariaLabel: "Notre façon de travailler",
+    badge: "Organisme de bienfaisance canadien enregistré",
+    points: [
+      "Établi à London, en Ontario",
+      "Soutien centré sur la personne",
+      "Mené par les familles et la communauté",
+      "Transparent sur ce que nous pouvons offrir ou non",
+    ],
   },
   services: {
-    eyebrow: "Ce que nous faisons",
-    heading: "Notre écosystème de services",
+    eyebrow: "Notre feuille de route",
+    heading: "Une vision par étapes pour un soutien à vie",
     subheading:
-      "Des soutiens centrés sur la personne, bâtis autour de chaque individu, de sa famille et de ses objectifs.",
-    needCare: "Besoin de soins personnalisés?",
-    accessSupport: "Obtenir du soutien",
+      "Nous savons que la constance est essentielle au développement. Pour garantir le plus haut niveau de conformité réglementaire et de sécurité, Hurpel Support Services suit un modèle d'expansion structuré sur plusieurs sites.",
+    needCare: "Des questions sur notre déploiement par étapes?",
+    accessSupport: "Contactez notre équipe",
     items: {
-      employment: {
-        title: "Services d'emploi",
-        description:
-          "Une planification d'emploi personnalisée et un placement qui jumelle les forces de chacun avec un travail valorisant.",
-      },
-      accommodation: {
-        title: "Hébergement et répit",
-        description:
-          "Des foyers de groupe accueillants et des séjours de répit qui soutiennent les familles quand elles en ont le plus besoin.",
-      },
       youth: {
-        title: "Services à l'enfance et à la jeunesse",
+        badge: "Étape 1 — En cours d'autorisation",
+        title: "Notre priorité immédiate : services résidentiels jeunesse",
         description:
-          "Des ateliers et programmes centrés sur la famille qui aident les enfants et les jeunes à grandir, apprendre et s'épanouir.",
+          "Nous consacrons actuellement 100 % de nos ressources opérationnelles au lancement de notre programme jeunesse spécialisé. Cet établissement est en cours d'autorisation auprès du ministère des Services à l'enfance et des Services sociaux et communautaires de l'Ontario (MCCSS).",
       },
-      community: {
-        title: "Accès communautaire",
+      adult: {
+        badge: "Étape 2 — Vision future",
+        title: "Notre vision future : logement avec soutien pour adultes",
         description:
-          "Des programmes de jour et des activités sociales et récréatives qui ouvrent la porte à l'amitié et à la participation.",
+          "Le soutien ne devrait pas s'arrêter à l'âge adulte. Notre plan stratégique à long terme prévoit l'ouverture de milieux de vie avec soutien distincts pour adultes dans la région de London.",
       },
     },
   },
   impact: {
-    heading: "Notre impact",
-    stats: {
-      people: "Personnes soutenues chaque année",
-      staff: "Membres du personnel dévoués",
-      homes: "Foyers de groupe sécuritaires et 3 lieux de répit",
-      volunteers: "Bénévoles actifs et 250 familles membres",
-    },
-    accredited: "Fièrement agréé FOCUS pour une responsabilité maximale.",
-    stories: {
-      people: "…comme James, qui a reçu sa première paie avec un accompagnateur à ses côtés.",
-      staff: "…comme Priya, intervenante résidentielle, qui a célébré 11 anniversaires avec sa maisonnée.",
-      homes: "…comme le foyer de la rue Maple, où quatre colocataires sont devenus une famille.",
-      volunteers: "…comme Dan, bénévole de la course Fun Run chaque année avec sa fille.",
-    },
+    heading: "Ce que nous bâtissons",
+    subheading:
+      "Nous en sommes à notre première année : nous n'avons pas encore de chiffres d'impact à présenter — et nous préférons ne rien montrer plutôt que d'inventer. Voici nos engagements, et ce que nous rendrons public dès que nous l'aurons.",
+    items: [
+      {
+        title: "Centré sur la personne dès le départ",
+        body: "Un soutien planifié autour de la personne et de sa famille, et non autour de ce qui est le plus simple pour nous.",
+      },
+      {
+        title: "Des rapports honnêtes",
+        body: "Nous publierons de vrais chiffres sur les participants, les bénévoles et les finances dès que nous les aurons — sans chiffres gonflés entre-temps.",
+      },
+      {
+        title: "Le local d'abord",
+        body: "Chaque dollar recueilli sert à soutenir des personnes de London et des environs.",
+      },
+      {
+        title: "Bâti avec les familles",
+        body: "Les familles et les autoreprésentants façonnent notre offre, son ordre de priorité et sa mise en œuvre.",
+      },
+    ],
+    charityNote:
+      "Organisme de bienfaisance canadien enregistré. Notre premier rapport public suivra à la fin de notre première année.",
   },
   quiz: {
     eyebrow: "Jumelage en deux minutes",
@@ -236,99 +253,75 @@ export const fr: Dict = {
         title: "Vous êtes bénévole dans l'âme",
         description:
           "Équipes d'événements, accompagnateurs, mentors — quelques heures de votre présence changent toute la semaine de quelqu'un.",
-        cta: "Devenir bénévole",
+        cta: "Manifester votre intérêt",
       },
       donate: {
         title: "Vous êtes un champion discret",
         description:
-          "Votre don reste local : 50 $ financent une semaine d'accompagnement à l'emploi, 100 $ offrent une journée de répit à une famille.",
+          "Votre don reste local et sert à faire autoriser et ouvrir notre programme résidentiel jeunesse. Chaque dollar compte ici.",
         cta: "Donner maintenant",
       },
       partner: {
         title: "Vous êtes un bâtisseur de communauté",
         description:
           "Employeurs, commanditaires et groupes rendent l'inclusion durable — embauche, jumelage de dons, commandite d'événements.",
-        cta: "Devenir partenaire",
+        cta: "Amorcer la conversation",
       },
     },
     restart: "Recommencer",
     stepLabel: "Question",
   },
-  stories: {
-    heading: "Histoires d'appartenance",
-    subheading: "De vraies personnes, de vraies familles, une vraie communauté — dans leurs propres mots.",
-    chooseStory: "Choisir une histoire",
-    story: "Histoire",
-    items: [
-      {
-        quote:
-          "Pour la première fois, mon frère a un chez-soi et des amis présents pour lui. Hurpel ne lui a pas seulement trouvé un logement — ils lui ont trouvé une communauté.",
-        name: "Melissa T.",
-        role: "Sœur d'une personne soutenue",
-      },
-      {
-        quote:
-          "L'équipe d'emploi a cru en moi avant que j'y croie moi-même. Deux ans plus tard, j'adore mon travail et mes collègues sont comme une famille.",
-        name: "James R.",
-        role: "Personne soutenue, Services d'emploi",
-      },
-      {
-        quote:
-          "Le répit a permis à notre famille de respirer. Savoir que notre fille est en sécurité, heureuse et fait ce qu'elle aime — c'est tout.",
-        name: "La famille Okafor",
-        role: "Services de répit",
-      },
-    ],
-  },
   events: {
-    eyebrow: "À vos agendas",
-    heading: "Événements et campagnes à venir",
-    subheading: "Soyez présents, bougez et tenez-vous aux côtés de vos voisins.",
+    eyebrow: "En préparation",
+    heading: "Les événements que nous préparons",
+    subheading:
+      "Nous sommes un tout nouvel organisme : rien n'est encore au calendrier. Voici les événements que nous souhaitons offrir en premier — dites-nous lequel vous intéresse.",
+    notice: "Aucun de ces événements n'est encore programmé. Les dates seront annoncées au fur et à mesure.",
     items: {
       belong: {
-        tag: "#WaitingToBelongCampaign",
-        dateDay: "Maintenant",
-        dateMonth: "En cours",
-        title: "Tout le monde mérite un chez-soi sécuritaire.",
+        tag: "Campagne prévue",
+        dateDay: "À venir",
+        dateMonth: "Prévu",
+        title: "Chacun mérite une place",
         description:
-          "Aidez-nous à combler le manque de logements pour les personnes ayant une déficience développementale en attente d'un foyer sécuritaire et soutenu.",
-        cta: "Rejoindre la campagne",
+          "Une campagne de sensibilisation que nous prévoyons lancer pour les personnes ayant une déficience développementale qui attendent encore du soutien près de chez elles.",
+        cta: "Manifester votre intérêt",
       },
       run: {
-        tag: "Communauté en mouvement",
-        dateDay: "26",
-        dateMonth: "Sept 2026",
-        title: "La course Serious(ly) Fun",
+        tag: "Événement prévu",
+        dateDay: "À venir",
+        dateMonth: "Prévu",
+        title: "Une course communautaire",
         description:
-          "Marchez, roulez ou courez — tout le monde a sa place sur la ligne de départ. Parcours entièrement accessible, pour toute la famille.",
-        cta: "Réservez la date",
+          "Une marche ou course entièrement accessible que nous espérons organiser dès que les bénévoles et les permis seront en place.",
+        cta: "Manifester votre intérêt",
       },
       cookie: {
-        tag: "Semaine du biscuit sourire",
-        dateDay: "Semaine",
-        dateMonth: "Annuel",
-        title: "Campagne de partenariat",
+        tag: "Collecte prévue",
+        dateDay: "À venir",
+        dateMonth: "Prévu",
+        title: "Semaine des commerces locaux",
         description:
-          "Chaque biscuit sourire vendu soutient les programmes locaux. Prenez un biscuit, partagez un sourire, changez une vie.",
-        cta: "Trouver un point de vente",
+          "Une semaine de financement avec les commerces du quartier que nous aimerions organiser. Aucun partenaire n'est encore confirmé.",
+        cta: "Amorcer la conversation",
       },
     },
   },
   involved: {
     heading: "Faites partie de l'histoire",
     subheading:
-      "Donnez de votre temps ou devenez partenaire — l'inclusion se bâtit grâce à des gens comme vous.",
+      "Manifestez votre intérêt dès maintenant — bénévolat et partenariats s'ouvriront une fois notre permis obtenu.",
     volunteer: {
       title: "Devenir bénévole",
       description:
-        "Rejoignez plus de 200 bénévoles actifs — équipes d'événements, accompagnateurs de programmes, mentors et plus.",
-      cta: "Devenir bénévole",
+        "Le recrutement s'ouvrira une fois notre permis obtenu. Manifestez votre intérêt et nous vous contacterons à ce moment.",
+      cta: "Manifester votre intérêt",
     },
     partner: {
       title: "Devenir partenaire",
       description:
-        "Employeurs, commanditaires et groupes communautaires — bâtissons l'inclusion ensemble.",
-      cta: "Devenir partenaire",
+        "Employeurs, commanditaires et groupes communautaires — les présentations sont bienvenues, les ententes viendront après l'autorisation.",
+      cta: "Amorcer la conversation",
     },
   },
   donateBand: {
@@ -337,10 +330,10 @@ export const fr: Dict = {
       "Chaque dollar reste local — il finance des foyers, des programmes et des opportunités pour les personnes ayant une déficience développementale, ici même dans notre communauté.",
     provides: "offre",
     amounts: [
-      { value: "25 $", impact: "un après-midi de loisirs communautaires" },
-      { value: "50 $", impact: "une semaine d'accompagnement à l'emploi" },
-      { value: "100 $", impact: "une journée de répit pour une famille" },
-      { value: "250 $", impact: "un mois de programmes jeunesse" },
+      { value: "25 $", impact: "pour l'équipement de sécurité et d'accessibilité" },
+      { value: "50 $", impact: "pour la formation et la vérification du personnel" },
+      { value: "100 $", impact: "pour meubler la chambre d'un jeune" },
+      { value: "250 $", impact: "pour les frais d'autorisation et de conformité" },
     ],
   },
   newsletter: {
@@ -386,10 +379,10 @@ export const fr: Dict = {
     customAmount: "Montant personnalisé ($)",
     customAmountLabel: "Montant personnalisé en dollars",
     amountContexts: [
-      "25 $ finance une heure de soutien individuel",
-      "50 $ offre du soutien récréatif communautaire",
-      "100 $ finance un atelier familial",
-      "250 $ parraine une semaine de répit",
+      "25 $ servent à l'équipement de sécurité et d'accessibilité",
+      "50 $ servent à la formation et la vérification du personnel",
+      "100 $ servent à meubler la chambre d'un jeune",
+      "250 $ servent aux frais d'autorisation et de conformité",
     ],
     fullName: "Nom complet",
     email: "Adresse courriel",
@@ -409,11 +402,32 @@ export const fr: Dict = {
     poweredBy: "Propulsé par",
     paymentPartners: "Partenaires de paiement acceptés",
   },
+  donateOptions: {
+    heading: "Faire un don maintenant",
+    subheading:
+      "Vous préférez ne pas attendre un courriel? Donnez immédiatement via l'un de nos partenaires sécurisés.",
+    giveWith: "Donner avec {provider}",
+    comingSoon: "Bientôt disponible",
+    modalTitle: "Donner avec {provider}",
+    close: "Fermer",
+    loading: "Chargement du formulaire de don sécurisé…",
+    handoffBody:
+      "{provider} n'autorise pas l'affichage de son paiement à l'intérieur d'un autre site. Continuez et la page sécurisée de {provider} s'ouvrira ici — votre don est traité entièrement par eux.",
+    continueTo: "Continuer vers {provider}",
+    cancel: "Annuler",
+    stripeAmount: "Choisissez un montant",
+    stripeCustom: "Montant personnalisé ($)",
+    stripeContinue: "Continuer vers le paiement sécurisé",
+    stripeMinimum: "Veuillez saisir un montant de 5 $ ou plus.",
+    stripeSecureNote:
+      "Les données de carte sont saisies chez Stripe et n'atteignent jamais nos serveurs.",
+    stripeError: "Nous n'avons pas pu démarrer le paiement. Veuillez réessayer.",
+  },
   pages: {
     home: {
       title: "Hurpel Support Services — Des personnes valorisées. Une communauté inclusive.",
       description:
-        "Nous offrons des soutiens de qualité aux personnes ayant une déficience développementale afin qu'elles vivent une vie épanouie, en collaboration avec les familles et la communauté.",
+        "Hurpel Support Services se bâtit pour soutenir les personnes ayant une déficience développementale afin qu'elles vivent une vie épanouie, en collaboration avec les familles et la communauté. Notre programme résidentiel jeunesse est en cours d'autorisation auprès du MCCSS.",
     },
     about: {
       title: "Qui nous sommes",
@@ -441,135 +455,133 @@ export const fr: Dict = {
             "L'inclusion, ce sont de vraies amitiés, de vrais emplois et de vrais foyers — ici même, dans la communauté.",
         },
       ],
+      leadershipHeading: "Notre direction",
+      leadershipBody:
+        "Notre équipe de direction allie une passion pour les services sociaux à un strict respect de la conformité provinciale. En maintenant une communication ouverte avec les superviseurs de programme du MCCSS, les inspecteurs municipaux et les réseaux locaux de services aux personnes ayant une déficience intellectuelle, nous veillons à ce que notre maison demeure une référence en matière de soins dans le Sud-Ouest de l'Ontario.",
+      leadershipNote:
+        "Les profils individuels de l'équipe seront publiés une fois notre permis du MCCSS accordé.",
       accountabilityHeading: "Agrément et responsabilité",
       accountabilityBody:
-        "Nous sommes fièrement agréés FOCUS pour une responsabilité maximale. En tant qu'organisme de bienfaisance enregistré, chaque dollar est suivi, vérifié et déclaré — donnez et devenez partenaire en toute confiance.",
+        "En tant qu'organisme de bienfaisance enregistré, chaque dollar est suivi et déclaré. Nous sommes un nouvel organisme : nos premiers chiffres annuels seront publiés à la fin de notre première année — et nous n'annoncerons pas de résultats que nous n'avons pas.",
       getInvolvedCta: "Participez",
     },
     services: {
-      title: "Services",
+      title: "Notre vision par étapes",
       metaDescription:
-        "Emploi, hébergement et répit, programmes jeunesse et services d'accès communautaire.",
+        "Notre plan par étapes : services résidentiels jeunesse en cours d'autorisation auprès du MCCSS, et logement avec soutien pour adultes comme étape future.",
       banner:
-        "Des soutiens centrés sur la personne, bâtis autour de chaque individu, de sa famille et de ses objectifs.",
-      accessThisSupport: "Accéder à ce soutien",
+        "Un plan structuré sur plusieurs sites, axé sur la conformité réglementaire et la sécurité.",
+      accessThisSupport: "Poser une question sur cette étape",
       faqHeading: "Questions fréquentes",
-      faqIntro: "Vous ne savez pas par où commencer? Ces réponses aident — et nous sommes à un appel :",
+      faqIntro:
+        "Des questions sur où nous en sommes? Ces réponses aident — et nous sommes joignables au",
       items: {
-        employment: {
-          title: "Services d'emploi",
-          description:
-            "Une planification d'emploi personnalisée et un placement qui jumelle les forces de chacun avec un travail valorisant dans la communauté.",
-          points: [
-            "Planification de carrière centrée sur la personne",
-            "Accompagnement et soutien en milieu de travail",
-            "Partenariats avec les employeurs de la région",
-          ],
-        },
-        accommodation: {
-          title: "Hébergement et répit",
-          description:
-            "Des foyers de groupe sécuritaires et accueillants et des séjours de répit qui soutiennent les familles quand elles en ont le plus besoin.",
-          points: [
-            "32 foyers de groupe sécuritaires",
-            "3 lieux de répit dédiés",
-            "Personnel résidentiel formé 24/7",
-          ],
-        },
         youth: {
-          title: "Services à l'enfance et à la jeunesse",
+          badge: "Étape 1 — En cours d'autorisation",
+          title: "Notre priorité immédiate : services résidentiels jeunesse",
           description:
-            "Des ateliers et programmes centrés sur la famille qui aident les enfants et les jeunes à grandir, apprendre et s'épanouir.",
+            "Nous consacrons actuellement 100 % de nos ressources opérationnelles au lancement de notre programme jeunesse spécialisé. Cet établissement est en cours d'autorisation auprès du ministère des Services à l'enfance et des Services sociaux et communautaires de l'Ontario (MCCSS). Notre programme jeunesse vise à offrir des milieux stables, de type familial, axés sur l'éducation, la régulation émotionnelle et les compétences essentielles.",
           points: [
-            "Ateliers centrés sur la famille",
-            "Soutien à la transition scolaire",
-            "Programmes de liens entre pairs",
+            "Des milieux stables, de type familial",
+            "Éducation, régulation émotionnelle et compétences essentielles",
+            "En cours d'autorisation auprès du MCCSS — pas encore en activité",
           ],
         },
-        community: {
-          title: "Accès communautaire",
+        adult: {
+          badge: "Étape 2 — Vision future",
+          title: "Notre vision future : logement avec soutien pour adultes",
           description:
-            "Des programmes de jour et des activités sociales et récréatives qui ouvrent la porte à l'amitié et à la pleine participation communautaire.",
+            "Le soutien ne devrait pas s'arrêter à l'âge adulte. Pour éviter les ruptures de service lorsque les jeunes quittent les services jeunesse, notre plan à long terme prévoit l'ouverture de milieux de vie avec soutien distincts pour adultes dans la région de London. Cette étape distincte portera sur le soutien professionnel, la transition vers l'autonomie et la participation communautaire à long terme.",
           points: [
-            "Programmes de jour partout en ville",
-            "Activités sociales et récréatives",
-            "Sorties soutenues par des bénévoles",
+            "Des lieux distincts et dédiés aux adultes dans la région de London",
+            "Soutien professionnel et transition vers l'autonomie",
+            "Participation communautaire à long terme",
           ],
         },
       },
       faqs: [
         {
-          question: "Comment accéder aux services pour la première fois?",
+          question: "Pouvons-nous faire une demande ou réserver une place maintenant?",
           answer:
-            "Commencez par notre formulaire de contact ou appelez-nous. Un coordonnateur d'accueil vous rencontrera, vous et votre famille, pour comprendre vos objectifs, expliquer les options de financement et bâtir un plan centré sur la personne — aucune référence requise.",
+            "Non. Aucune opération de soins, aucun placement résidentiel et aucun traitement d'admission n'auront lieu avant l'octroi officiel du permis provincial. Nous ne pouvons accepter aucune demande, ni inscrire qui que ce soit sur une liste d'attente, ni amorcer un processus d'admission avant cette étape. Vous pouvez nous écrire pour des questions générales.",
         },
         {
-          question: "Y a-t-il une liste d'attente pour les foyers ou le répit?",
+          question: "À quelle étape en êtes-vous?",
           answer:
-            "La demande de logement avec soutien est élevée partout en Ontario. Nous sommes transparents sur les délais lors de l'accueil, et notre campagne #WaitingToBelong finance activement de nouvelles places.",
+            "Hurpel Support Services a reçu toutes les autorisations locales de London en matière de zonage, d'incendie et de santé, et nous travaillons actuellement à l'obtention de notre permis du MCCSS pour notre programme résidentiel jeunesse.",
         },
         {
-          question: "Combien coûte le soutien pour les familles?",
+          question: "Quand le programme jeunesse ouvrira-t-il?",
           answer:
-            "La plupart des services sont financés par des programmes provinciaux comme Passeport et les références SOPDI. Nous aidons chaque famille à naviguer le financement — le coût ne devrait jamais priver quelqu'un de soutien.",
+            "Cela relève du ministère et non de nous : nous ne devinerons pas de date. Nous l'annoncerons ici dès que le permis sera officiellement accordé.",
         },
         {
-          question: "Les services peuvent-ils être adaptés aux besoins de mon proche?",
+          question: "Qu'en est-il du logement avec soutien pour adultes?",
           answer:
-            "Oui — tout commence par un plan centré sur la personne, bâti autour de l'individu, de sa famille et de ses objectifs. Les soutiens s'adaptent à mesure que les besoins évoluent.",
+            "Il s'agit d'une étape future, et non d'un service actuel. Elle exigerait ses propres lieux et ses propres approbations, et les travaux commenceront après l'autorisation et la mise en service de notre programme jeunesse.",
         },
       ],
     },
     events: {
       title: "Événements à venir",
       metaDescription:
-        "Campagnes et événements : #WaitingToBelong, la course Serious(ly) Fun et la Semaine du biscuit sourire.",
-      banner: "Soyez présents, bougez et tenez-vous aux côtés de vos voisins.",
+        "Hurpel Support Services en est à sa première année. Aucun événement n'est encore programmé — voici ce que nous préparons.",
+      banner: "Notre calendrier d'événements est encore en construction. Voici ce que nous espérons offrir en premier.",
+      noticeBadge: "Bientôt",
+      noticeHeading: "Aucun événement n'a encore lieu",
+      noticeBody:
+        "Hurpel Support Services en est à sa première année : rien n'est au calendrier pour l'instant — et nous préférons vous le dire clairement plutôt que d'afficher un événement auquel vous ne pouvez pas assister. Tout ce qui suit figure à notre plan, sans être confirmé. Dites-nous ce qui vous intéresse et nous vous préviendrons dès qu'une date sera fixée.",
+      noticeCta: "Dites-nous ce qui vous intéresse",
+      plannedBadge: "Prévu — pas encore programmé",
       items: {
         belong: {
-          tag: "#WaitingToBelongCampaign",
-          title: "Tout le monde mérite un chez-soi sécuritaire.",
+          tag: "Campagne prévue",
+          title: "Chacun mérite une place",
           description:
-            "Trop de personnes ayant une déficience développementale attendent encore un foyer sécuritaire et soutenu. La campagne #WaitingToBelong finance de nouvelles places en foyer de groupe et sensibilise les décideurs.",
-          cta: "Soutenir la campagne",
+            "Nous prévoyons une campagne de sensibilisation pour les personnes ayant une déficience développementale qui attendent encore du soutien près de chez elles — partager des histoires locales et les porter auprès des décideurs. Rien n'est lancé : nous bâtissons d'abord les partenariats.",
+          cta: "Manifester votre intérêt",
         },
         run: {
-          tag: "Communauté en mouvement",
-          title: "La course Serious(ly) Fun",
+          tag: "Événement prévu",
+          title: "Une course communautaire",
           description:
-            "À vos agendas : samedi 26 septembre 2026. Un parcours entièrement accessible au cœur de la communauté — marchez, roulez ou courez. Inscription d'équipes, pour toute la famille, et 100 % des profits restent locaux.",
-          cta: "Bénévole le jour de la course",
+            "Une marche ou course entièrement accessible où chacun a sa place sur la ligne de départ. C'est une ambition, pas une date — il nous faut des bénévoles, un parcours et des permis avant d'annoncer quoi que ce soit. Si vous souhaitez y participer ou aider à l'organiser, écrivez-nous.",
+          cta: "Manifester votre intérêt",
         },
         cookie: {
-          tag: "Semaine du biscuit sourire",
-          title: "Campagne de partenariat",
+          tag: "Collecte prévue",
+          title: "Semaine des commerces locaux",
           description:
-            "Chaque biscuit sourire vendu dans les points de vente participants soutient les programmes locaux. Prenez un biscuit, partagez un sourire, changez une vie — et parlez de jumelage de dons à votre employeur.",
-          cta: "Devenir partenaire",
+            "Une semaine de financement avec les commerces du quartier, où une part des ventes soutient nos programmes. Aucun partenaire n'est encore confirmé — si vous tenez un commerce local et souhaitez être parmi les premiers, contactez-nous.",
+          cta: "Amorcer la conversation",
         },
       },
     },
     getInvolved: {
       title: "Participez",
       metaDescription:
-        "Bénévolat, dons ou partenariats — bâtissons une communauté plus inclusive.",
+        "Manifestez votre intérêt pour le bénévolat ou un partenariat. Le recrutement s'ouvrira après l'octroi du permis du MCCSS.",
       banner:
-        "Rejoignez plus de 200 bénévoles actifs et 250 familles membres qui rendent l'inclusion réelle.",
+        "Manifestez votre intérêt dès maintenant — le recrutement officiel s'ouvrira une fois notre permis obtenu.",
+      noticeHeading: "Nous ne recrutons pas encore",
+      noticeBody:
+        "Nous n'acceptons aucune candidature de bénévole, ne procédons à aucune vérification et ne confirmons aucune entente de partenariat avant l'octroi officiel de notre permis du MCCSS. Vous pouvez tout à fait manifester votre intérêt dès maintenant — nous conserverons vos coordonnées et vous contacterons à l'ouverture officielle du recrutement.",
       volunteerHeading: "Devenir bénévole",
-      volunteerBody: "Peu importe vos compétences ou votre horaire, il y a une place pour vous ici.",
+      volunteerBody:
+        "Voici les rôles dont nous aurons besoin une fois autorisés. Rien ci-dessous n'est encore ouvert aux candidatures.",
       roles: [
-        "Équipes d'événements (course Fun Run, Semaine du biscuit sourire)",
+        "Équipes d'événements, dès que nos premiers événements seront programmés",
         "Accompagnateurs pour les activités de jour",
         "Mentors pour les services d'emploi",
         "Bénévoles au conseil et aux comités",
       ],
-      applyCta: "Devenir bénévole",
+      applyCta: "Manifester votre intérêt",
       donateHeading: "Offrez le cadeau de l'appartenance",
       donateBody:
         "Don unique ou mensuel — chaque dollar reste local et finance des foyers, des programmes et des opportunités.",
       partnerHeading: "Devenir partenaire",
       partnerBody:
-        "Employeurs, commanditaires et groupes communautaires — bâtissons l'inclusion ensemble. Appelez le {phone} ou écrivez-nous.",
+        "Employeurs, commanditaires et groupes communautaires — nous aimerions vous entendre, même si aucune entente ne peut être confirmée avant l'autorisation. Appelez le {phone} ou écrivez-nous.",
     },
     donate: {
       title: "Faire un don",
@@ -578,7 +590,7 @@ export const fr: Dict = {
       banner:
         "Chaque dollar reste local et finance des foyers, des programmes et des opportunités pour les personnes ayant une déficience développementale.",
       faqHeading: "Vos questions sur le don",
-      faqIntro: "Organisme de bienfaisance enregistré {charity} — responsable, vérifié et local.",
+      faqIntro: "Organisme de bienfaisance enregistré {charity} — responsable, transparent et local.",
       faqs: [
         {
           question: "Vais-je recevoir un reçu fiscal?",
@@ -588,7 +600,7 @@ export const fr: Dict = {
         {
           question: "Où va réellement mon argent?",
           answer:
-            "Chaque dollar reste local : foyers de groupe et places de répit, accompagnement à l'emploi, programmes jeunesse et activités d'accès communautaire. Nos états financiers vérifiés sont disponibles sur demande.",
+            "Chaque dollar reste local : accompagnement à l'emploi, programmes jeunesse et activités d'accès communautaire. Nouvel organisme, nos premiers états financiers suivront la fin de notre première année et seront partagés ouvertement.",
         },
         {
           question: "Puis-je dédier mon don à quelqu'un?",
@@ -607,7 +619,19 @@ export const fr: Dict = {
       metaDescription: "Complétez votre don en toute sécurité.",
       heading: "Complétez votre don",
       subheading: "Sécuritaire, simple et 100 % d'impact local.",
+      orPledge: "Ou promettez et payez plus tard",
       back: "Retour",
+    },
+    donateComplete: {
+      successTitle: "Merci — votre don est confirmé",
+      successBody:
+        "Votre don servira à soutenir des personnes ayant une déficience développementale ici, dans notre communauté. Stripe vous a envoyé un reçu de paiement; votre reçu fiscal suivra de notre part.",
+      pendingTitle: "Nous n'avons pas pu confirmer ce don",
+      pendingBody:
+        "Stripe n'a pas signalé ce paiement comme complet. Si un montant a été prélevé, contactez-nous et nous réglerons la situation — ne payez pas deux fois.",
+      receiptTo: "Un reçu de paiement a été envoyé à {email}.",
+      backHome: "Retour à l'accueil",
+      tryAgain: "Réessayer",
     },
     contact: {
       title: "Contact",
@@ -624,10 +648,10 @@ export const fr: Dict = {
     whoWeSupport: {
       title: "Qui nous soutenons",
       metaDescription:
-        "Nous soutenons les personnes ayant des besoins médicaux et complexes pour bien vivre dans la communauté.",
+        "Pour qui notre programme résidentiel jeunesse est conçu — actuellement en cours d'autorisation auprès du MCCSS.",
       banner:
-        "Nous soutenons les personnes ayant des besoins médicaux et complexes pour bien vivre dans la communauté.",
-      supportsHeading: "Nos soutiens",
+        "Pour qui nos programmes sont conçus. Aucun placement avant l'octroi du permis.",
+      supportsHeading: "Pour qui nous bâtissons",
       imageCaption: "Prêts à rouler — tout le monde a sa place sur le sentier.",
       intro: "Le désir d'avoir son propre chez-soi et de faire partie d'une communauté est universel.",
       missionBody:
@@ -654,7 +678,7 @@ export const fr: Dict = {
             "La chance d'apprendre, de travailler, de jouer et de grandir — peu importe la complexité des besoins.",
         },
       ],
-      exploreServices: "Découvrir nos services",
+      exploreServices: "Voir notre vision par étapes",
     },
     impactOfGiving: {
       title: "L'impact de vos dons",
@@ -679,9 +703,9 @@ export const fr: Dict = {
         },
         {
           amount: "100 $",
-          title: "Une journée de répit pour une famille",
+          title: "Un atelier pour une famille",
           description:
-            "Offre une journée complète de répit, donnant aux aidants le temps de souffler pendant que leur proche profite d'un séjour sécuritaire et amusant.",
+            "Finance un atelier centré sur la famille : du soutien concret pour les parents et les aidants, entourés de gens qui comprennent.",
         },
         {
           amount: "250 $",
@@ -692,7 +716,7 @@ export const fr: Dict = {
       ],
       whereHeading: "Où va l'argent",
       whereIntro:
-        "En tant qu'organisme de bienfaisance enregistré, nous publions des états financiers vérifiés et sommes fièrement agréés FOCUS. La transparence n'est pas une promesse — c'est une pratique.",
+        "En tant qu'organisme de bienfaisance enregistré, nous rendons compte de chaque dollar et publierons nos états financiers dès la fin de notre première année. La transparence n'est pas une promesse — c'est une pratique.",
       allocations: [
         { pct: "78 %", label: "Programmes et soutiens directs" },
         { pct: "14 %", label: "Foyers et installations" },

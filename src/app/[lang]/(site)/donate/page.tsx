@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import DonateForm from "@/components/DonateForm";
+import DonateOptions from "@/components/DonateOptions";
 import FaqAccordion from "@/components/FaqAccordion";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
@@ -39,6 +40,9 @@ export default async function DonatePage({ params }: { params: Promise<{ lang: s
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <Reveal>
             <DonateForm dict={dict.donateForm} />
+          </Reveal>
+          <Reveal className="mt-10">
+            <DonateOptions dict={dict.donateOptions} lang={lang as Lang} className="max-w-xl mx-auto" />
           </Reveal>
         </div>
       </section>

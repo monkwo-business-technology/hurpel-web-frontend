@@ -26,6 +26,9 @@ export default function Events({ lang, dict }: { lang: Lang; dict: Dictionary["e
             {dict.heading}
           </h2>
           <p className="mt-4 text-ink-muted">{dict.subheading}</p>
+          <p className="mt-4 inline-block px-4 py-2 rounded-2xl bg-accent/15 text-sm font-semibold text-primary-dark dark:text-accent">
+            {dict.notice}
+          </p>
         </Reveal>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">

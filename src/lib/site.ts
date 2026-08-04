@@ -3,7 +3,7 @@ export const site = {
   shortName: "Hurpel",
   tagline: "Valued People. Inclusive Community.",
   description:
-    "We provide quality supports for people with developmental disabilities to live fulfilled lives, in collaboration with families and the community.",
+    "Hurpel Support Services is being built to support people with developmental disabilities to live fulfilled lives, in collaboration with families and the community. Our youth residential program is in the licensing stage with MCCSS.",
   phone: "+1 (226) 503-3499",
   phoneHref: "tel:+12265033499",
   email: "info@hurpelsupport.com",

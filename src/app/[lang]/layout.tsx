@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Baloo_2, Nunito_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
+import LicensingBanner from "@/components/LicensingBanner";
 import { site } from "@/lib/site";
 import { getDictionary, hasLocale, locales, type Lang } from "@/i18n";
 
@@ -68,6 +69,7 @@ export default async function RootLayout({
         >
           {dict.common.skipToMain}
         </a>
+        <LicensingBanner lang={lang as Lang} dict={dict.licensing} />
         {children}
       </body>
     </html>

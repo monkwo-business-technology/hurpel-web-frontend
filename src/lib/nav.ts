@@ -12,6 +12,8 @@ export type NavGroup = {
   label: string;
   href: string;
   items: MegaItem[];
+  /** Optional pill shown beside the group heading, e.g. "Coming soon". */
+  badge?: string;
 };
 
 export type NavSection = {
@@ -47,21 +49,12 @@ export function buildNavSections(dict: Dictionary, lang: Lang): NavSection[] {
       label: s.services.label,
       href: p("/services"),
       items: [
-        {
-          ...s.services.items.employment,
-          href: p("/services#employment"),
-          image: images.service.employment,
-        },
-        {
-          ...s.services.items.accommodation,
-          href: p("/services#accommodation"),
-          image: images.service.housing,
-        },
         { ...s.services.items.youth, href: p("/services#youth"), image: images.service.youth },
+        { ...s.services.items.adult, href: p("/services#adult"), image: images.service.housing },
         {
-          ...s.services.items.community,
-          href: p("/services#community"),
-          image: images.service.community,
+          ...s.services.items.licensing,
+          href: p("/services#licensing"),
+          image: images.about.mission,
         },
       ],
     },
@@ -85,6 +78,7 @@ export function buildNavSections(dict: Dictionary, lang: Lang): NavSection[] {
         {
           label: s.events.label,
           href: p("/events"),
+          badge: dict.nav.comingSoon,
           items: [
             {
               ...s.events.items.belong,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ContactSection from "@/components/ContactSection";
+import LicensingNotice from "@/components/LicensingNotice";
 import { site } from "@/lib/site";
 import { images } from "@/lib/images";
 import { getDictionary, type Lang } from "@/i18n";
@@ -32,6 +33,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         homeHref={`/${lang}`}
         homeLabel={dict.common.home}
       />
+      <LicensingNotice dict={dict.licensing} className="bg-surface" />
       <ContactSection dict={dict} />
     </>
   );
