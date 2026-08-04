@@ -391,6 +391,8 @@ const dict = {
       "We've received your one-time pledge. Our team will email you a secure payment link shortly to complete your donation safely.",
     disclaimer:
       "No card details are collected here. After you pledge, we email you a secure Stripe/PayPal payment link — your payment details never touch our inbox.",
+    comingSoonNote:
+      "Online giving is not open yet — we will switch it on once our MCCSS licensing is granted. Please contact us if you would like to give in the meantime.",
     poweredBy: "Powered by",
     paymentPartners: "Accepted payment partners",
   },
@@ -400,6 +402,7 @@ const dict = {
       "Rather not wait for an email? Donate instantly through one of our secure partners.",
     giveWith: "Give with {provider}",
     comingSoon: "Coming soon",
+    comingSoonShort: "Soon",
     modalTitle: "Donate with {provider}",
     close: "Close",
     loading: "Loading the secure donation form…",

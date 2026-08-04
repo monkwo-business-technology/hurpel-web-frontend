@@ -52,7 +52,16 @@ export const donateProviders: readonly DonateProvider[] = [
   { id: "zeffy", name: "Zeffy", kind: "iframe", href: zeffyUrl, color: "#ff5a5f" },
 ];
 
+/**
+ * Master switch. While true, every provider is presented as "coming soon" and
+ * clicking one goes to the donation page instead of opening a checkout — no
+ * money can be taken through the site regardless of which keys or URLs are
+ * configured. Flip to false to bring the configured providers live.
+ */
+export const donationsComingSoon: boolean = true;
+
 /** A provider is clickable when it has somewhere to send the donor. */
 export function isDonateProviderReady(provider: DonateProvider): boolean {
+  if (donationsComingSoon) return false;
   return provider.kind === "stripe" || provider.href !== "";
 }

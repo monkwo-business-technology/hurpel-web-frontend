@@ -399,6 +399,8 @@ export const fr: Dict = {
       "Nous avons bien reçu votre engagement unique. Notre équipe vous enverra sous peu un lien de paiement sécurisé par courriel.",
     disclaimer:
       "Aucune donnée bancaire n'est recueillie ici. Après votre engagement, nous vous envoyons un lien de paiement sécurisé Stripe/PayPal — vos données de paiement ne passent jamais par notre boîte courriel.",
+    comingSoonNote:
+      "Les dons en ligne ne sont pas encore ouverts — nous les activerons dès l'obtention de notre permis du MCCSS. Écrivez-nous si vous souhaitez donner entre-temps.",
     poweredBy: "Propulsé par",
     paymentPartners: "Partenaires de paiement acceptés",
   },
@@ -408,6 +410,7 @@ export const fr: Dict = {
       "Vous préférez ne pas attendre un courriel? Donnez immédiatement via l'un de nos partenaires sécurisés.",
     giveWith: "Donner avec {provider}",
     comingSoon: "Bientôt disponible",
+    comingSoonShort: "Bientôt",
     modalTitle: "Donner avec {provider}",
     close: "Fermer",
     loading: "Chargement du formulaire de don sécurisé…",
