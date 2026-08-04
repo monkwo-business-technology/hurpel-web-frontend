@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import FaqAccordion from "@/components/FaqAccordion";
+import LicensingNotice from "@/components/LicensingNotice";
 import { site } from "@/lib/site";
 import { images } from "@/lib/images";
 import { getDictionary, type Lang } from "@/i18n";
@@ -21,11 +22,9 @@ export async function generateMetadata({
   };
 }
 
-const serviceImages = {
-  employment: images.service.employment,
-  accommodation: images.service.housing,
+const phaseImages = {
   youth: images.service.youth,
-  community: images.service.community,
+  adult: images.service.housing,
 };
 
 export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -33,9 +32,11 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
   const dict = getDictionary(lang as Lang);
   const t = dict.pages.services;
 
-  const services = (
-    ["employment", "accommodation", "youth", "community"] as const
-  ).map((id) => ({ id, ...t.items[id], image: serviceImages[id] }));
+  const phases = (["youth", "adult"] as const).map((id) => ({
+    id,
+    ...t.items[id],
+    image: phaseImages[id],
+  }));
 
   return (
     <>
@@ -47,9 +48,11 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
         homeLabel={dict.common.home}
       />
 
+      <LicensingNotice dict={dict.licensing} className="bg-surface" />
+
       <section className="bg-surface">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-16">
-          {services.map((s, i) => (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 space-y-16">
+          {phases.map((s, i) => (
             <Reveal key={s.id}>
               <article
                 id={s.id}
@@ -61,7 +64,10 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                   <Image src={s.image} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 </div>
                 <div className="glass rounded-2xl p-8 sm:p-10">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-primary">{s.title}</h2>
+                  <p className="inline-block px-3 py-1 rounded-full bg-accent text-primary-dark text-xs font-bold uppercase tracking-wide">
+                    {s.badge}
+                  </p>
+                  <h2 className="mt-4 text-2xl sm:text-3xl font-extrabold text-primary">{s.title}</h2>
                   <p className="mt-4 text-ink-muted text-lg">{s.description}</p>
                   <ul className="mt-6 space-y-3">
                     {s.points.map((p) => (

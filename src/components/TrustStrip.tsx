@@ -1,13 +1,6 @@
 import Reveal from "@/components/Reveal";
 import type { Dictionary } from "@/i18n";
 
-const partners = [
-  "Ontario Trillium Foundation",
-  "United Way Elgin Middlesex",
-  "City of London",
-  "Community Living Ontario",
-];
-
 export default function TrustStrip({ dict }: { dict: Dictionary["trust"] }) {
   return (
     <section aria-label={dict.ariaLabel} className="bg-surface-alt border-y border-primary/5">
@@ -20,7 +13,7 @@ export default function TrustStrip({ dict }: { dict: Dictionary["trust"] }) {
             {dict.badge}
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {partners.map((p) => (
+            {dict.points.map((p) => (
               <li key={p} className="text-ink-muted/70 font-semibold text-sm tracking-wide uppercase">
                 {p}
               </li>

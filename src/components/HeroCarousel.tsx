@@ -41,7 +41,7 @@ export default function HeroCarousel({
     },
   ];
 
-  const chips = [dict.chips.people, dict.chips.homes, dict.chips.volunteers];
+  const chips = [dict.chips.charity, dict.chips.local, dict.chips.open];
 
   const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
   const prev = useCallback(

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import LicensingNotice from "@/components/LicensingNotice";
 import { site } from "@/lib/site";
 import { images } from "@/lib/images";
 import { getDictionary, type Lang } from "@/i18n";
@@ -34,6 +35,22 @@ export default async function GetInvolvedPage({ params }: { params: Promise<{ la
         homeHref={`/${lang}`}
         homeLabel={dict.common.home}
       />
+
+      <section aria-labelledby="recruitment-notice-heading" className="bg-surface">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-16">
+          <Reveal className="rounded-2xl border-2 border-amber-400 bg-amber-50 dark:bg-amber-950/30 p-8 text-center">
+            <h2
+              id="recruitment-notice-heading"
+              className="text-2xl font-extrabold text-amber-950 dark:text-amber-100"
+            >
+              {t.noticeHeading}
+            </h2>
+            <p className="mt-4 text-amber-950/90 dark:text-amber-100/90 leading-relaxed">
+              {t.noticeBody}
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section id="volunteer" className="bg-surface scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -93,6 +110,8 @@ export default async function GetInvolvedPage({ params }: { params: Promise<{ la
           </Reveal>
         </div>
       </section>
+
+      <LicensingNotice dict={dict.licensing} />
     </>
   );
 }

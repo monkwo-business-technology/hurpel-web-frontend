@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NewsletterBand from "@/components/NewsletterBand";
+import DonateOptions from "@/components/DonateOptions";
 import { site } from "@/lib/site";
 import type { Dictionary, Lang } from "@/i18n";
 
@@ -34,10 +35,9 @@ export default function Footer({ lang, dict }: { lang: Lang; dict: Dictionary })
     { href: `/${lang}/contact`, label: dict.pages.contact.title },
   ];
   const serviceLinks = [
-    { href: `/${lang}/services#employment`, label: s.services.items.employment.label },
-    { href: `/${lang}/services#accommodation`, label: s.services.items.accommodation.label },
     { href: `/${lang}/services#youth`, label: s.services.items.youth.label },
-    { href: `/${lang}/services#community`, label: s.services.items.community.label },
+    { href: `/${lang}/services#adult`, label: s.services.items.adult.label },
+    { href: `/${lang}/services#licensing`, label: s.services.items.licensing.label },
   ];
 
   return (
@@ -62,8 +62,10 @@ export default function Footer({ lang, dict }: { lang: Lang; dict: Dictionary })
             <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
             </svg>
-            {dict.common.charityLine} {site.charityNumber} · FOCUS
+            {dict.common.charityLine} {site.charityNumber}
           </p>
+          <h2 className="mt-6 text-sm font-semibold text-white">{dict.donateOptions.heading}</h2>
+          <DonateOptions dict={dict.donateOptions} lang={lang} variant="compact" className="mt-3" />
         </div>
 
         <div>

@@ -1,14 +1,17 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import DonateOptions from "@/components/DonateOptions";
 import type { Dictionary, Lang } from "@/i18n";
 
 export default function DonateBand({
   lang,
   dict,
+  optionsDict,
   cta,
 }: {
   lang: Lang;
   dict: Dictionary["donateBand"];
+  optionsDict: Dictionary["donateOptions"];
   cta: string;
 }) {
   return (
@@ -40,6 +43,12 @@ export default function DonateBand({
             >
               {cta}
             </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="text-sm font-semibold text-primary-dark/80">
+                {optionsDict.heading}
+              </span>
+              <DonateOptions dict={optionsDict} lang={lang} variant="compact" />
+            </div>
           </div>
           <ul className="grid grid-cols-2 gap-4">
             {dict.amounts.map((a) => (

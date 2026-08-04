@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import LicensingNotice from "@/components/LicensingNotice";
 import { site } from "@/lib/site";
 import { images } from "@/lib/images";
 import { getDictionary, type Lang } from "@/i18n";
@@ -34,6 +35,8 @@ export default async function WhoWeSupportPage({ params }: { params: Promise<{ l
         homeHref={`/${lang}`}
         homeLabel={dict.common.home}
       />
+
+      <LicensingNotice dict={dict.licensing} />
 
       {/* Our Supports — bike photo + intro */}
       <section className="bg-surface">

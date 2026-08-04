@@ -250,13 +250,20 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                 <div className="grid grid-cols-3 gap-8">
                   {navSections[openMenu].groups!.map((group) => (
                     <div key={group.label}>
-                      <Link
-                        href={group.href}
-                        onClick={closeAll}
-                        className="inline-block text-sm font-bold uppercase tracking-wider text-primary hover:text-primary-dark mb-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                      >
-                        {group.label}
-                      </Link>
+                      <span className="flex flex-wrap items-center gap-2 mb-4">
+                        <Link
+                          href={group.href}
+                          onClick={closeAll}
+                          className="inline-block text-sm font-bold uppercase tracking-wider text-primary hover:text-primary-dark rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          {group.label}
+                        </Link>
+                        {group.badge && (
+                          <span className="inline-block px-2 py-0.5 rounded-full bg-accent/25 text-primary-dark dark:text-accent text-[0.65rem] font-bold uppercase tracking-wide">
+                            {group.badge}
+                          </span>
+                        )}
+                      </span>
                       <ul className="space-y-2">
                         {group.items.map((item) => (
                           <li key={item.href}>
@@ -372,9 +379,14 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                           <Link
                             href={group.href}
                             onClick={closeAll}
-                            className="block px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-primary"
+                            className="flex flex-wrap items-center gap-2 px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-primary"
                           >
                             {group.label}
+                            {group.badge && (
+                              <span className="inline-block px-2 py-0.5 rounded-full bg-accent/25 text-primary-dark dark:text-accent text-[0.65rem] font-bold tracking-wide">
+                                {group.badge}
+                              </span>
+                            )}
                           </Link>
                           <ul className="space-y-1">
                             {group.items.map((item) => (
