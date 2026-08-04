@@ -247,7 +247,11 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
                 </Link>
               </div>
               {navSections[openMenu].groups ? (
-                <div className="grid grid-cols-3 gap-8">
+                <div
+                  className={`grid gap-8 ${
+                    navSections[openMenu].groups!.length > 3 ? "grid-cols-4" : "grid-cols-3"
+                  }`}
+                >
                   {navSections[openMenu].groups!.map((group) => (
                     <div key={group.label}>
                       <span className="flex flex-wrap items-center gap-2 mb-4">
