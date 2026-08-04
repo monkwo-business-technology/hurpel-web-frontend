@@ -48,21 +48,21 @@ export function buildNavSections(dict: Dictionary, lang: Lang): NavSection[] {
     {
       label: s.services.label,
       href: p("/services"),
-      items: [
-        { ...s.services.items.youth, href: p("/services#youth"), image: images.service.youth },
-        { ...s.services.items.adult, href: p("/services#adult"), image: images.service.housing },
-        {
-          ...s.services.items.licensing,
-          href: p("/services#licensing"),
-          image: images.about.mission,
-        },
-      ],
-    },
-    {
-      label: s.community.label,
-      href: p("/get-involved"),
       items: [],
       groups: [
+        {
+          label: s.services.groupLabel,
+          href: p("/services"),
+          items: [
+            { ...s.services.items.youth, href: p("/services#youth"), image: images.service.youth },
+            { ...s.services.items.adult, href: p("/services#adult"), image: images.service.housing },
+            {
+              ...s.services.items.licensing,
+              href: p("/services#licensing"),
+              image: images.about.mission,
+            },
+          ],
+        },
         {
           label: s.whoWeSupport.label,
           href: p("/who-we-support"),

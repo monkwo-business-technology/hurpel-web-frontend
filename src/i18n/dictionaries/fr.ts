@@ -22,7 +22,6 @@ export const fr: Dict = {
     comingSoon: "Bientôt",
     sections: {
       home: { label: "Accueil" },
-      community: { label: "Communauté" },
       contact: { label: "Contactez-nous" },
       about: {
         label: "À propos de nous",
@@ -46,7 +45,8 @@ export const fr: Dict = {
         description: "Des personnes ayant des besoins médicaux et complexes, vivant bien dans la communauté.",
       },
       services: {
-        label: "Notre vision par étapes",
+        label: "Notre vision",
+        groupLabel: "Notre vision par étapes",
         items: {
           youth: {
             label: "Étape 1 — Services résidentiels jeunesse",

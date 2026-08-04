@@ -18,7 +18,6 @@ const dict = {
     comingSoon: "Coming soon",
     sections: {
       home: { label: "Home" },
-      community: { label: "Community" },
       contact: { label: "Contact Us" },
       about: {
         label: "About Us",
@@ -42,7 +41,8 @@ const dict = {
         description: "People with medical and complex needs, living well in community.",
       },
       services: {
-        label: "Our Phased Vision",
+        label: "Our Vision",
+        groupLabel: "Our Phased Vision",
         items: {
           youth: {
             label: "Phase 1 — Youth Residential Services",
