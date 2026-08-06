@@ -54,7 +54,7 @@ export default async function DonatePage({ params }: { params: Promise<{ lang: s
               {t.faqHeading}
             </h2>
             <p className="mt-4 text-ink-muted">
-              {t.faqIntro.replace("{charity}", site.charityNumber)}
+              {t.faqIntro.replace("{charity}", site.ocn)}
             </p>
           </Reveal>
           <Reveal className="mt-10">

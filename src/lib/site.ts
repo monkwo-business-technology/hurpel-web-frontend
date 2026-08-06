@@ -8,7 +8,15 @@ export const site = {
   phoneHref: "tel:+12265033499",
   email: "info@hurpelsupport.com",
   address: "London, Ontario, Canada",
-  charityNumber: "#10808 7222 RR0001",
+  /** Registered legal entity name, as filed in Ontario. */
+  legalName: "HURPEL SUPPORT SERVICES",
+  /**
+   * Ontario Corporation Number / Business Identification Number.
+   * This is a provincial corporate identifier, NOT a CRA charitable
+   * registration number — do not label it "Registered Charity" and do not
+   * promise charitable tax receipts against it.
+   */
+  ocn: "1001596965",
   social: {
     facebook: "https://www.facebook.com/share/1U5TEAHPsh/",
     instagram:

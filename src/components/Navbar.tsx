@@ -71,7 +71,7 @@ export default function Navbar({ lang, dict }: { lang: Lang; dict: Dictionary })
       <div className="hidden md:block bg-primary-dark text-white text-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
           <p className="text-white/85 hidden lg:block">
-            {dict.common.charityLine} {site.charityNumber} · {dict.common.focusLine}
+            {dict.common.charityLine} {site.ocn} · {dict.common.focusLine}
           </p>
           <span className="lg:hidden" aria-hidden="true" />
           <div className="flex items-center gap-6">

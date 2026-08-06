@@ -72,7 +72,7 @@ export default async function ImpactOfGivingPage({
               <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
               </svg>
-              {dict.common.charityLine} {site.charityNumber}
+              {dict.common.charityLine} {site.ocn}
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -113,10 +113,9 @@ export default async function ImpactOfGivingPage({
           </Reveal>
           <Reveal delay={150}>
             <h2 className="text-3xl font-extrabold text-primary">{t.storyHeading}</h2>
-            <blockquote className="mt-6 text-xl text-ink leading-relaxed border-l-4 border-accent pl-6">
-              {t.storyQuote}
-            </blockquote>
-            <p className="mt-4 font-semibold text-ink-muted">— {t.storyAttribution}</p>
+            <p className="mt-6 text-xl text-ink leading-relaxed border-l-4 border-accent pl-6">
+              {t.storyBody}
+            </p>
           </Reveal>
         </div>
       </section>

@@ -10,7 +10,7 @@ export const fr: Dict = {
     donateNow: "Faire un don",
     contactUs: "Contactez-nous",
     back: "Retour",
-    charityLine: "Organisme de bienfaisance enregistré",
+    charityLine: "Organisme sans but lucratif de l'Ontario n°",
     focusLine: "Fondé à London, en Ontario",
     switchToDark: "Passer au thème sombre",
     switchToLight: "Passer au thème clair",
@@ -137,7 +137,7 @@ export const fr: Dict = {
       },
     },
     chips: {
-      charity: { value: "Nouvel", label: "organisme de bienfaisance enregistré" },
+      charity: { value: "Nouvel", label: "organisme sans but lucratif en Ontario" },
       local: { value: "London", label: "Ontario — notre point d'ancrage" },
       open: { value: "Ouvert", label: "aux familles, bénévoles et partenaires" },
     },
@@ -162,7 +162,7 @@ export const fr: Dict = {
   },
   trust: {
     ariaLabel: "Notre façon de travailler",
-    badge: "Organisme de bienfaisance canadien enregistré",
+    badge: "Organisme sans but lucratif de l'Ontario",
     points: [
       "Établi à London, en Ontario",
       "Soutien centré sur la personne",
@@ -215,7 +215,7 @@ export const fr: Dict = {
       },
     ],
     charityNote:
-      "Organisme de bienfaisance canadien enregistré. Notre premier rapport public suivra à la fin de notre première année.",
+      "Organisme sans but lucratif de l'Ontario, société n° {ocn}. Notre premier rapport public suivra à la fin de notre première année.",
   },
   quiz: {
     eyebrow: "Jumelage en deux minutes",
@@ -465,7 +465,7 @@ export const fr: Dict = {
         "Les profils individuels de l'équipe seront publiés une fois notre permis du MCCSS accordé.",
       accountabilityHeading: "Agrément et responsabilité",
       accountabilityBody:
-        "En tant qu'organisme de bienfaisance enregistré, chaque dollar est suivi et déclaré. Nous sommes un nouvel organisme : nos premiers chiffres annuels seront publiés à la fin de notre première année — et nous n'annoncerons pas de résultats que nous n'avons pas.",
+        "Nous sommes une société sans but lucratif de l'Ontario et non un organisme de bienfaisance enregistré : nous ne pouvons donc pas délivrer de reçus fiscaux. Chaque dollar est tout de même suivi et déclaré. Nous sommes un nouvel organisme : nos premiers chiffres annuels seront publiés à la fin de notre première année — et nous n'annoncerons pas de résultats que nous n'avons pas.",
       getInvolvedCta: "Participez",
     },
     services: {
@@ -593,12 +593,12 @@ export const fr: Dict = {
       banner:
         "Chaque dollar reste local et finance des foyers, des programmes et des opportunités pour les personnes ayant une déficience développementale.",
       faqHeading: "Vos questions sur le don",
-      faqIntro: "Organisme de bienfaisance enregistré {charity} — responsable, transparent et local.",
+      faqIntro: "Organisme sans but lucratif de l'Ontario, société n° {charity} — responsable, transparente et locale.",
       faqs: [
         {
-          question: "Vais-je recevoir un reçu fiscal?",
+          question: "Vais-je recevoir un reçu fiscal de bienfaisance?",
           answer:
-            "Oui. En tant qu'organisme de bienfaisance canadien enregistré, nous émettons des reçus officiels pour les dons de 20 $ et plus — automatiquement par courriel pour les dons en ligne.",
+            "Non. Hurpel Support Services est une société sans but lucratif de l'Ontario et n'est pas un organisme de bienfaisance enregistré auprès de l'ARC : nous ne pouvons pas délivrer de reçus officiels et votre don n'est pas déductible d'impôt. Vous recevrez tout de même un reçu de paiement confirmant le montant.",
         },
         {
           question: "Où va réellement mon argent?",
@@ -628,7 +628,7 @@ export const fr: Dict = {
     donateComplete: {
       successTitle: "Merci — votre don est confirmé",
       successBody:
-        "Votre don servira à soutenir des personnes ayant une déficience développementale ici, dans notre communauté. Stripe vous a envoyé un reçu de paiement; votre reçu fiscal suivra de notre part.",
+        "Votre don servira à soutenir des personnes ayant une déficience développementale ici, dans notre communauté. Stripe vous a envoyé un reçu de paiement. Nous sommes une société sans but lucratif de l'Ontario et non un organisme de bienfaisance enregistré : nous ne pouvons pas délivrer de reçu fiscal.",
       pendingTitle: "Nous n'avons pas pu confirmer ce don",
       pendingBody:
         "Stripe n'a pas signalé ce paiement comme complet. Si un montant a été prélevé, contactez-nous et nous réglerons la situation — ne payez pas deux fois.",
@@ -719,16 +719,15 @@ export const fr: Dict = {
       ],
       whereHeading: "Où va l'argent",
       whereIntro:
-        "En tant qu'organisme de bienfaisance enregistré, nous rendons compte de chaque dollar et publierons nos états financiers dès la fin de notre première année. La transparence n'est pas une promesse — c'est une pratique.",
+        "Nous rendons compte de chaque dollar et publierons nos états financiers dès la fin de notre première année. La transparence n'est pas une promesse — c'est une pratique.",
       allocations: [
         { pct: "78 %", label: "Programmes et soutiens directs" },
         { pct: "14 %", label: "Foyers et installations" },
         { pct: "8 %", label: "Administration et collecte de fonds" },
       ],
       storyHeading: "Un don, une histoire",
-      storyQuote:
-        "Grâce aux donateurs mensuels, mon fils a emménagé dans un foyer avec soutien à cinq minutes de chez nous. Ses colocataires sont maintenant ses meilleurs amis. Voilà ce que le don accomplit.",
-      storyAttribution: "Parent d'une personne soutenue",
+      storyBody:
+        "Nous n'avons pas encore d'histoire à vous raconter — et c'est précisément là tout l'enjeu. Chaque don fait aujourd'hui sert à ouvrir les portes de notre premier foyer jeunesse à London, pour qu'un jour un jeune y trouve enfin sa place. En donnant maintenant, vous ne lisez pas l'histoire de quelqu'un d'autre : vous aidez à écrire la première.",
       ctaHeading: "Prêt à faire votre impact?",
       ctaBody: "Donnez une fois ou chaque mois — dans les deux cas, tout votre don travaille ici même.",
     },
