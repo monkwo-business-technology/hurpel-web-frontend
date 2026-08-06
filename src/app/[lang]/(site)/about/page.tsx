@@ -117,7 +117,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <Reveal>
             <h2 className="text-3xl font-extrabold text-primary">{t.accountabilityHeading}</h2>
             <p className="mt-4 text-ink-muted text-lg">
-              {t.accountabilityBody} ({site.charityNumber})
+              {t.accountabilityBody} ({dict.common.charityLine} {site.ocn})
             </p>
             <Link
               href={`/${lang}/get-involved`}

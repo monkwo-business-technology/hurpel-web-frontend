@@ -6,7 +6,7 @@ const dict = {
     donateNow: "Donate Now",
     contactUs: "Contact Us",
     back: "Back",
-    charityLine: "Registered Charity",
+    charityLine: "Ontario Not-for-Profit No.",
     focusLine: "Founded in London, Ontario",
     switchToDark: "Switch to dark theme",
     switchToLight: "Switch to light theme",
@@ -133,7 +133,7 @@ const dict = {
       },
     },
     chips: {
-      charity: { value: "New", label: "registered Canadian charity" },
+      charity: { value: "New", label: "not-for-profit, registered in Ontario" },
       local: { value: "London", label: "Ontario — where we are based" },
       open: { value: "Open", label: "to families, volunteers, and partners" },
     },
@@ -158,7 +158,7 @@ const dict = {
   },
   trust: {
     ariaLabel: "How we work",
-    badge: "Registered Canadian charity",
+    badge: "Ontario not-for-profit",
     points: [
       "Based in London, Ontario",
       "Person-centered support",
@@ -211,7 +211,7 @@ const dict = {
       },
     ],
     charityNote:
-      "Registered Canadian charity. Our first public report will follow at the end of our founding year.",
+      "Ontario not-for-profit, corporation no. {ocn}. Our first public report will follow at the end of our founding year.",
   },
   quiz: {
     eyebrow: "Two-Minute Match",
@@ -454,7 +454,7 @@ const dict = {
         "Individual team profiles will be published once our MCCSS licensing is granted.",
       accountabilityHeading: "Accreditation & Accountability",
       accountabilityBody:
-        "As a registered charity, every dollar is tracked and reported. We are a new organisation, so we will publish our first annual figures at the end of our founding year — and we will not claim results we do not have.",
+        "We are an Ontario not-for-profit corporation, not a registered charity, so we cannot issue charitable tax receipts. Every dollar is still tracked and reported. We are a new organisation, so we will publish our first annual figures at the end of our founding year — and we will not claim results we do not have.",
       getInvolvedCta: "Get Involved",
     },
     services: {
@@ -575,21 +575,21 @@ const dict = {
     donate: {
       title: "Donate",
       metaDescription:
-        "Give once or monthly. Every dollar stays local, funding homes, programs, and opportunities.",
+        "Give once or monthly. Every dollar stays local and goes toward opening our youth residential program.",
       banner:
-        "Every dollar stays local, funding homes, programs, and opportunities for people with developmental disabilities.",
+        "Every dollar stays local and goes toward opening our youth residential program.",
       faqHeading: "Giving, Answered",
-      faqIntro: "Registered Charity {charity} — accountable, transparent, and local.",
+      faqIntro: "Ontario not-for-profit, corporation no. {charity} — accountable, transparent, and local.",
       faqs: [
         {
-          question: "Will I get a tax receipt?",
+          question: "Will I get a charitable tax receipt?",
           answer:
-            "Yes. As a registered Canadian charity, we issue official donation receipts for gifts of $20 or more — automatically by email for online gifts.",
+            "No. Hurpel Support Services is an Ontario not-for-profit corporation and is not a CRA-registered charity, so we cannot issue official donation receipts and your gift is not tax deductible. You will still receive a payment receipt confirming the amount.",
         },
         {
           question: "Where does my money actually go?",
           answer:
-            "Every dollar stays local: employment coaching, youth programs, and community access activities. As a new charity our first published financials will follow our founding year, and we will share them openly.",
+            "Every dollar stays local and goes toward getting our youth residential program licensed and open. Our first published financials will follow our founding year, and we will share them openly.",
         },
         {
           question: "Can I dedicate my gift to someone?",
@@ -614,7 +614,7 @@ const dict = {
     donateComplete: {
       successTitle: "Thank you — your donation is confirmed",
       successBody:
-        "Your gift is on its way to supporting people with developmental disabilities right here in our community. Stripe has emailed you a payment receipt; your charitable tax receipt will follow from us.",
+        "Your gift is on its way to supporting people with developmental disabilities right here in our community. Stripe has emailed you a payment receipt. We are an Ontario not-for-profit rather than a registered charity, so we cannot issue a charitable tax receipt.",
       pendingTitle: "We couldn't confirm this donation",
       pendingBody:
         "Stripe has not reported this payment as complete. If money left your account, please contact us and we will sort it out — do not pay twice.",
@@ -667,49 +667,48 @@ const dict = {
     },
     impactOfGiving: {
       title: "Impact of Giving",
-      metaDescription: "See exactly how your donation changes lives in our community.",
-      banner: "Every gift becomes a home, a job, a friendship. See how far your generosity goes.",
+      metaDescription: "See exactly where your donation goes while we work toward opening our first youth home.",
+      banner: "Every gift brings our first youth home closer to opening. See how far your generosity goes.",
       journeyHeading: "The Journey of Your Dollar",
       journeyIntro:
-        "Every dollar donated stays local and is tracked from gift to impact. Here's what your generosity makes possible.",
+        "Every dollar donated stays local and is tracked from gift to impact. Here's what your generosity goes toward while we work toward licensing.",
       tiers: [
         {
           amount: "$25",
-          title: "An Afternoon of Belonging",
+          title: "Safety & Accessibility",
           description:
-            "Covers a community recreation outing — swimming, bowling, an art class — where friendships take root.",
+            "Goes toward the safety and accessibility equipment our first home needs to meet licensing standards.",
         },
         {
           amount: "$50",
-          title: "A Week of Job Coaching",
+          title: "Training & Screening",
           description:
-            "Funds one-on-one employment coaching that turns individual strengths into meaningful, paid work.",
+            "Goes toward training and background screening for the staff who will support young people here.",
         },
         {
           amount: "$100",
-          title: "A Family Workshop Session",
+          title: "A Room of Their Own",
           description:
-            "Funds a family-centered workshop session, giving parents and carers practical support and a room full of people who understand.",
+            "Goes toward furnishing a bedroom, so a young person arrives to a space that already feels like theirs.",
         },
         {
           amount: "$250",
-          title: "A Month of Youth Programs",
+          title: "Licensing & Compliance",
           description:
-            "Sponsors a month of family-centered workshops that help children and youth grow, learn, and belong.",
+            "Goes toward the licensing and compliance work that has to be finished before our doors can open.",
         },
       ],
       whereHeading: "Where the Money Goes",
       whereIntro:
-        "As a registered charity we report on every dollar, and we will publish our financials once our first year closes. Transparency isn't a promise — it's a practice.",
+        "We report on every dollar, and we will publish our financials once our first year closes. Transparency isn't a promise — it's a practice.",
       allocations: [
         { pct: "78%", label: "Direct programs & supports" },
         { pct: "14%", label: "Homes & facilities" },
         { pct: "8%", label: "Administration & fundraising" },
       ],
       storyHeading: "One Gift, One Story",
-      storyQuote:
-        "Because of monthly donors, my son moved into a supported home five minutes from us. He has housemates who are now his best friends. That's what giving does.",
-      storyAttribution: "Parent of a person supported",
+      storyBody:
+        "We do not have a story to tell you yet — and that is exactly the point. Every gift given now goes toward opening the doors of our first youth home in London, so that one day there is a young person here who belongs somewhere they did not before. Give now and you are not reading someone else's story. You are helping write the first one.",
       ctaHeading: "Ready to Make Your Impact?",
       ctaBody: "Give once or monthly — either way, your whole gift goes to work right here.",
     },

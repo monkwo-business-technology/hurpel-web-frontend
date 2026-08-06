@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import { site } from "@/lib/site";
 import type { Dictionary } from "@/i18n";
 
 const icons = [
@@ -40,7 +41,7 @@ export default function ImpactTracker({ dict }: { dict: Dictionary["impact"] }) 
             <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
             </svg>
-            {dict.charityNote}
+            {dict.charityNote.replace("{ocn}", site.ocn)}
           </p>
         </Reveal>
       </div>
